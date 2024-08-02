@@ -1,4 +1,4 @@
-export const LAYOUT = `{
+export const LAYOUT = `
   hideBlock
   paddingTop
   paddingBottom
@@ -7,4 +7,4 @@ export const LAYOUT = `{
     paddingTop
     paddingBottom
   }
-}`
+`

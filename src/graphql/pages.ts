@@ -26,7 +26,6 @@ export const PAGE = `
         updatedAt
         id
         title
-        template
         layout {
             ${HERO}
         }
@@ -35,7 +34,7 @@ export const PAGE = `
           url
           label
         }
-        indexable
+        disableIndex
       }
     }
   }
