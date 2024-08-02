@@ -9,7 +9,7 @@ export const PAGES = (page: number) => {
       docs {
         slug
         updatedAt
-        indexable
+        disableIndex
         breadcrumbs {
           url
           label
