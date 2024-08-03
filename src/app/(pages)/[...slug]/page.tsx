@@ -47,13 +47,16 @@ export async function generateMetadata({ params: { slug } }: PageProps): Promise
     if (url === '/home') {
         url = ''
     }
-    url = baseUrl + url + '/'
+    url = baseUrl + url + '/';
 
-    const ogImage =
-        typeof page?.meta?.image === 'object' &&
-        page?.meta?.image !== null &&
-        'url' in page?.meta?.image &&
-        `${process.env.NEXT_PUBLIC_CMS_URL}${page.meta.image.url}`
+    const image = page?.meta?.image ?? '';
+    let imageUrl = '';
+
+    if (typeof image !== 'string') {
+        imageUrl = image.url ?? "";
+    }
+
+    const ogImage = `${process.env.NEXT_PUBLIC_CMS_URL}${imageUrl}`
 
     return {
         title: page?.meta?.title ?? '',

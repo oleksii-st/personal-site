@@ -1,3 +1,3 @@
-type Block<T> = T & {
+export type Block<T> = T & {
     isFirst?: boolean;
 };

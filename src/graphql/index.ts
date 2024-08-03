@@ -70,7 +70,7 @@ export const fetchPage = async (incomingSlugSegments?: string[], next?: {revalid
     ).then(res => res.json())
 
     if (errors) {
-        console.error(JSON.stringify(errors)) // eslint-disable-line no-console
+        console.error(JSON.stringify(errors))  
         throw new Error()
     }
 
@@ -109,7 +109,7 @@ export const fetchPages = async (next?: {revalidate: number}): Promise<
         }).then(res => res.json())
 
         if (errors) {
-            console.error(JSON.stringify(errors)) // eslint-disable-line no-console
+            console.error(JSON.stringify(errors))  
             throw new Error()
         }
 

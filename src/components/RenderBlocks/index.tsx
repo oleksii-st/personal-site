@@ -22,6 +22,7 @@ export const RenderBlocks = ({blocks}: { blocks: LayoutBlocks }) => {
             return null;
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return <Block key={index} {...block as any} isFirst={index === 0}/>
     })}</>
 }

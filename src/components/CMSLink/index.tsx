@@ -65,7 +65,7 @@ export const CMSLink = ({
                 href = objectURL.href.replace(process.env.NEXT_PUBLIC_SITE_URL, '')
             }
         } catch (e) {
-            console.error(`Failed to format url: ${href}`, e) // eslint-disable-line no-console
+            console.error(`Failed to format url: ${href}`, e)  
         }
     }
 

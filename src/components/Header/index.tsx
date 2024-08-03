@@ -5,7 +5,7 @@ import {cn} from "@/utils/cn";
 
 type HeaderProps = HTMLAttributes<HTMLHeadingElement> & HeaderType;
 
-export const Header = ({logo, className, ...rest}: HeaderProps) => {
+export const Header = ({logo, ...rest}: HeaderProps) => {
     return (
         <header {...rest}>
             <div className={cn("container")}>

@@ -5,7 +5,7 @@ const pluginReact = require("eslint-plugin-react");
 
 module.exports = [
   {
-    ignores: ['node_modules/**', '.next/**', 'build/**', 'eslint.config.js'],
+    ignores: ['node_modules/**', '.next/**', 'build/**', 'eslint.config.js', 'next.config.js'],
   },
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   { languageOptions: { globals: globals.browser } },
@@ -16,6 +16,8 @@ module.exports = [
     rules: {
       'no-var': 'error',
       'prefer-const': 'error',
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off"
     }
   }
 ];
