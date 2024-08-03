@@ -8,8 +8,8 @@ type HeaderProps = HTMLAttributes<HTMLHeadingElement> & HeaderType;
 export const Header = ({ logo, ...rest }: HeaderProps) => {
   return (
     <header {...rest}>
-      <div className={cn('container')}>
-        <div className={cn('flex py-4')}>
+      <div className="container">
+        <div className="flex py-4">
           {logo && (
             <Link
               href="/"

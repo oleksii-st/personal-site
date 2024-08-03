@@ -10,7 +10,7 @@ export const Footer = ({ columns, copyright, ...rest }: HeaderProps) => {
 
   return (
     <footer {...rest}>
-      <div className={cn('container')}>
+      <div className="container">
         <div className={cn('flex flex-col gap-4 py-4 text-md', 'sm:text:lg sm:py-6')}>
           {columns?.length && (
             <div
@@ -19,14 +19,14 @@ export const Footer = ({ columns, copyright, ...rest }: HeaderProps) => {
               {columns?.map((column, index) => (
                 <div key={index} className={cn('flex flex-col text-center gap-4', 'sm:flex-row')}>
                   {column.navItems?.map(({ link }, index) => (
-                    <CMSLink key={index} className={cn('text-link ')} {...link} />
+                    <CMSLink key={index} className="text-link" {...link} />
                   ))}
                 </div>
               ))}
             </div>
           )}
 
-          <div className={cn('text-center')}>{copyrighText}</div>
+          <div className="text-center">{copyrighText}</div>
         </div>
       </div>
     </footer>

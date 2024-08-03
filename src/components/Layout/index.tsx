@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import { fetchGlobals } from '@/graphql';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { cn } from '@/utils/cn';
 
 export const Layout = async ({ children }: { children: ReactNode }) => {
   const {
@@ -20,9 +19,9 @@ export const Layout = async ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <div className={cn('flex flex-col min-h-[100vh]')} style={styles}>
+    <div className="flex flex-col min-h-[100vh]" style={styles}>
       <Header {...header} />
-      <main className={cn('flex-auto pt-5 pb-5')}>{children}</main>
+      <main className="flex-auto pt-5 pb-5">{children}</main>
       <Footer {...footer} />
     </div>
   );
