@@ -2,6 +2,7 @@ export const LINK_FIELDS = `{
   label
   type
   newTab
+  disableIndex
   url
   reference {
     relationTo
