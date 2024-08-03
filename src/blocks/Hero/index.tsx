@@ -6,7 +6,7 @@ export type HeroProps = Block<HeroType>;
 export const Hero = (props: HeroProps) => {
     return (
         <div>
-            props: {JSON.stringify(props)}
+            props
         </div>
     );
 };

@@ -18,7 +18,7 @@ export const Layout = async ({children}: {children: ReactNode}) => {
   return (
       <div className={cn('flex flex-col min-h-[100vh]')} style={styles}>
           <Header {...header} />
-              <main className={cn('flex-auto')}>
+              <main className={cn('flex-auto pt-5 pb-5')}>
                   {children}
               </main>
           <Footer {...footer} />
