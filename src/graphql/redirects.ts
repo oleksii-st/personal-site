@@ -1,10 +1,11 @@
 export const REDIRECTS = `
-  query{
+  query Redirects {
      Redirects {
         docs {
-           id
-           from
-           to
+               id
+               from
+               to
+           }
       }
   }
 `;

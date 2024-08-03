@@ -1,11 +1,10 @@
-import { Footer, Header, NotFound, Page, Settings } from '@/payload-types';
+import { Footer, Header, NotFound, Page, Settings, Redirect } from '@/payload-types';
 import { GLOBALS, NOT_FOUND } from '@/graphql/globals';
 import { PAGE, PAGES } from '@/graphql/pages';
 import { REDIRECTS } from '@/graphql/redirects';
-import { Redirect } from 'next';
 
 const defaultNext = {
-  revalidate: 600,
+  revalidate: 0,
 };
 
 export const fetchGlobals = async (next?: {
