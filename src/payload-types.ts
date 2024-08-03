@@ -160,16 +160,7 @@ export interface Socials {
     heading?: string | null;
     socials?:
         | {
-        link?: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            disableIndex?: boolean | null;
-            reference?: {
-                relationTo: 'pages';
-                value: string | Page;
-            } | null;
-            url?: string | null;
-        };
+        link?: Link;
         icon: string | Media;
         id?: string | null;
     }[]
@@ -188,6 +179,21 @@ export interface Socials {
     id?: string | null;
     blockName?: string | null;
     blockType: 'socials';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Link".
+ */
+export interface Link {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    disableIndex?: boolean | null;
+    reference?: {
+        relationTo: 'pages';
+        value: string | Page;
+    } | null;
+    url?: string | null;
+    label: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -222,17 +228,7 @@ export interface Experience {
     heading?: string | null;
     jobs?:
         | {
-        link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            disableIndex?: boolean | null;
-            reference?: {
-                relationTo: 'pages';
-                value: string | Page;
-            } | null;
-            url?: string | null;
-            label: string;
-        };
+        link: Link;
         icon: string | Media;
         id?: string | null;
     }[]
@@ -381,17 +377,7 @@ export interface Footer {
         | {
         navItems?:
             | {
-            link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                disableIndex?: boolean | null;
-                reference?: {
-                    relationTo: 'pages';
-                    value: string | Page;
-                } | null;
-                url?: string | null;
-                label: string;
-            };
+            link: Link;
             id?: string | null;
         }[]
             | null;
