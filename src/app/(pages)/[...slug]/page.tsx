@@ -34,7 +34,7 @@ export async function generateStaticParams() {
     }))
 }
 
-export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params: { slug } }: PageProps): Promise<Metadata> {
     const baseUrl = process.env.SITEMAP_URL ?? "";
     const page = await fetchPage(slug)
     let robots = {}
