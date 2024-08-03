@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\""
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -17,13 +19,17 @@
     "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.8.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "9.x",
     "eslint-config-next": "14.2.5",
+    "eslint-plugin-react": "^7.35.0",
+    "globals": "^15.9.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "5.4.5"
+    "typescript": "5.4.5",
+    "typescript-eslint": "^8.0.0"
   }
 }
