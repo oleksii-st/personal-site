@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .container {
+    width: 100%;
+    max-width: calc(var(--container-width, 100%) + var(--container-padding, 16px) * 2);
+    margin: 0 auto;
+    padding: 0 var(--container-padding, 16px);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--headings-color, #000000);
+  }
+
+  *:focus-visible {
+    outline: 2px solid black;
+    outline-offset: 2px;
   }
 }

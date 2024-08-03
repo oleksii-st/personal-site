@@ -17,7 +17,7 @@ const Page = async ({ params: { slug = ['home'] } }: Props) => {
 
     return (
         <>
-            <div>
+            <div className="container">
                 {JSON.stringify(page)}
             </div>
         </>

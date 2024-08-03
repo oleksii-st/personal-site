@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {HTMLAttributes} from 'react';
 import {Header as HeaderType} from "@/payload-types"
 
-export const Header = ({logo}: HeaderType) => {
+type HeaderProps = HTMLAttributes<HTMLHeadingElement> & HeaderType;
+
+export const Header = ({logo, ...rest}: HeaderProps) => {
     return (
-        <header>
+        <header {...rest}>
             logo: {JSON.stringify(logo)}
         </header>
     );

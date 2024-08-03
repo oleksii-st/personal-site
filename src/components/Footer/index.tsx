@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {HTMLAttributes} from 'react';
 import {Footer as FooterType} from "@/payload-types"
 
-export const Footer = ({columns, copyright}: FooterType) => {
+type HeaderProps = HTMLAttributes<HTMLElement> & FooterType;
+
+export const Footer = ({columns, copyright, ...rest}: HeaderProps) => {
     return (
-        <footer>
+        <footer {...rest}>
             columns: {JSON.stringify(columns)} <br />
             copyright: {copyright} <br />
         </footer>
