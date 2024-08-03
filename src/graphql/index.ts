@@ -1,154 +1,163 @@
-import {Footer, Header, NotFound, Page, Settings} from "@/payload-types";
-import {GLOBALS, NOT_FOUND} from "@/graphql/globals";
-import {PAGE, PAGES} from "@/graphql/pages";
-import {REDIRECTS} from "@/graphql/redirects";
-import {Redirect} from "next";
+import { Footer, Header, NotFound, Page, Settings } from '@/payload-types';
+import { GLOBALS, NOT_FOUND } from '@/graphql/globals';
+import { PAGE, PAGES } from '@/graphql/pages';
+import { REDIRECTS } from '@/graphql/redirects';
+import { Redirect } from 'next';
 
 const defaultNext = {
-    revalidate: 600,
-}
+  revalidate: 600,
+};
 
-export const fetchGlobals = async (next?: {revalidate: number}): Promise<{
-    footer: Footer;
-    header: Header;
-    settings: Settings;
+export const fetchGlobals = async (next?: {
+  revalidate: number;
+}): Promise<{
+  footer: Footer;
+  header: Header;
+  settings: Settings;
 }> => {
-    next = next || defaultNext;
-    const { data } = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?globals`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
+  next = next || defaultNext;
+  const { data } = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?globals`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    next,
+    body: JSON.stringify({
+      query: GLOBALS,
+    }),
+  }).then((res) => res.json());
+
+  return {
+    footer: data.Footer,
+    header: data.Header,
+    settings: data.Settings,
+  };
+};
+
+export const fetchNotFound = async (next?: { revalidate: number }): Promise<NotFound> => {
+  next = next || defaultNext;
+  const { data } = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?globals`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    next,
+    body: JSON.stringify({
+      query: NOT_FOUND,
+    }),
+  }).then((res) => res.json());
+
+  return data.NotFound;
+};
+
+export const fetchPage = async (
+  incomingSlugSegments?: string[],
+  next?: { revalidate: number },
+): Promise<Page | null> => {
+  next = next || defaultNext;
+  const slugSegments = incomingSlugSegments || ['home'];
+  const slug = slugSegments.at(-1);
+  const { data, errors } = await fetch(
+    `${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?page=${slug}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      next,
+      body: JSON.stringify({
+        query: PAGE,
+        variables: {
+          slug,
         },
-        next,
-        body: JSON.stringify({
-            query: GLOBALS,
-        }),
-    }).then(res => res.json())
+      }),
+    },
+  ).then((res) => res.json());
 
-    return {
-        footer: data.Footer,
-        header: data.Header,
-        settings: data.Settings,
-    }
-}
+  if (errors) {
+    console.error(JSON.stringify(errors));
+    throw new Error();
+  }
 
-export const fetchNotFound = async (next?: {revalidate: number}): Promise<NotFound> => {
-    next = next || defaultNext;
-    const { data } = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?globals`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        next,
-        body: JSON.stringify({
-            query: NOT_FOUND,
-        }),
-    }).then(res => res.json())
+  const pagePath = `/${slugSegments.join('/')}`;
 
-    return data.NotFound;
-}
+  const page = data.Pages?.docs.find(({ breadcrumbs }: Page) => {
+    if (!breadcrumbs) return false;
+    const { url } = breadcrumbs[breadcrumbs.length - 1];
+    return url === pagePath;
+  });
 
-export const fetchPage = async (incomingSlugSegments?: string[], next?: {revalidate: number}): Promise<Page | null> => {
-    next = next || defaultNext;
-    const slugSegments = incomingSlugSegments || ['home']
-    const slug = slugSegments.at(-1)
-    const { data, errors } = await fetch(
-        `${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?page=${slug}`,
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            next,
-            body: JSON.stringify({
-                query: PAGE,
-                variables: {
-                    slug,
-                },
-            }),
-        },
-    ).then(res => res.json())
+  if (page) {
+    return page;
+  }
+
+  return null;
+};
+
+export const fetchPages = async (next?: {
+  revalidate: number;
+}): Promise<
+  Array<{ breadcrumbs: Page['breadcrumbs']; slug: string; updatedAt: string; indexable?: boolean }>
+> => {
+  next = next || defaultNext;
+
+  let result: {
+    breadcrumbs: Page['breadcrumbs'];
+    slug: string;
+    updatedAt: string;
+    indexable?: boolean;
+  }[] = [];
+
+  const getPagesOnPage = async (page: number) => {
+    const { data, errors } = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?pages`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      next,
+      body: JSON.stringify({
+        query: PAGES(page),
+      }),
+    }).then((res) => res.json());
 
     if (errors) {
-        console.error(JSON.stringify(errors))  
-        throw new Error()
+      console.error(JSON.stringify(errors));
+      throw new Error();
     }
 
-    const pagePath = `/${slugSegments.join('/')}`
+    return data.Pages;
+  };
 
-    const page = data.Pages?.docs.find(({ breadcrumbs }: Page) => {
-        if (!breadcrumbs) return false
-        const { url } = breadcrumbs[breadcrumbs.length - 1]
-        return url === pagePath
-    })
+  let allFetched = false;
+  let page = 1;
 
-    if (page) {
-        return page
+  while (!allFetched) {
+    const data = await getPagesOnPage(page);
+
+    result = [...result, ...data.docs];
+
+    page++;
+
+    if (!data?.hasNextPage) {
+      allFetched = true;
     }
+  }
 
-    return null
-}
+  return result;
+};
 
-export const fetchPages = async (next?: {revalidate: number}): Promise<
-    Array<{ breadcrumbs: Page['breadcrumbs']; slug: string, updatedAt: string, indexable?: boolean }>
-> => {
-    next = next || defaultNext;
+export const fetchRedirects = async (next?: { revalidate: number }): Promise<Redirect[]> => {
+  next = next || defaultNext;
+  const { data } = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?redirects`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    next,
+    body: JSON.stringify({
+      query: REDIRECTS,
+    }),
+  }).then((res) => res.json());
 
-    let result:{ breadcrumbs: Page['breadcrumbs']; slug: string, updatedAt: string, indexable?: boolean }[] = [];
-
-    const getPagesOnPage = async (page: number) => {
-        const { data, errors } = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?pages`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            next,
-            body: JSON.stringify({
-                query: PAGES(page),
-            }),
-        }).then(res => res.json())
-
-        if (errors) {
-            console.error(JSON.stringify(errors))  
-            throw new Error()
-        }
-
-        return data.Pages
-    }
-
-    let allFetched = false;
-    let page = 1;
-
-    while (!allFetched) {
-        const data = await getPagesOnPage(page);
-
-        result = [...result, ...data.docs];
-
-        page++;
-
-        if (!data?.hasNextPage) {
-            allFetched = true;
-        }
-    }
-
-    return result;
-}
-
-export const fetchRedirects = async (next?: {revalidate: number}): Promise<Redirect[]> => {
-    next = next || defaultNext;
-    const { data } = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql?redirects`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        next,
-        body: JSON.stringify({
-            query: REDIRECTS,
-        }),
-    }).then(res => res.json())
-
-    return data?.Redirects?.docs || [];
-}
-
-
-
+  return data?.Redirects?.docs || [];
+};

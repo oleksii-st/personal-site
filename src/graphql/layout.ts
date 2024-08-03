@@ -7,4 +7,4 @@ export const LAYOUT = `
     paddingTop
     paddingBottom
   }
-`
+`;

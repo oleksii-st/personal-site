@@ -1,8 +1,8 @@
-import {HERO} from "@/graphql/blocks";
-import {META_FIELDS} from "@/graphql/meta";
+import { HERO } from '@/graphql/blocks';
+import { META_FIELDS } from '@/graphql/meta';
 
 export const PAGES = (page: number) => {
-    return `
+  return `
   query Pages {
     Pages(limit: 300, page: ${page}, where: { slug: { not_equals: "cloud" } }) {
       hasNextPage
@@ -17,7 +17,8 @@ export const PAGES = (page: number) => {
       }
     }
   }
-`};
+`;
+};
 
 export const PAGE = `
   query Page($slug: String ) {
@@ -38,4 +39,4 @@ export const PAGE = `
       }
     }
   }
-`
+`;

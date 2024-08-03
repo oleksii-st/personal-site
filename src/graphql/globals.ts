@@ -1,4 +1,4 @@
-import {LINK_FIELDS} from "@/graphql/link";
+import { LINK_FIELDS } from '@/graphql/link';
 
 export const GLOBALS = `
   query {
@@ -21,7 +21,7 @@ export const GLOBALS = `
         headingsColor
     }
   }
-`
+`;
 
 export const NOT_FOUND = `
     query {
@@ -30,4 +30,4 @@ export const NOT_FOUND = `
            description
         }
     }
-`
+`;

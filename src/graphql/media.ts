@@ -6,4 +6,4 @@ export const MEDIA_FIELDS = `{
   url
   width
   height
-}`
+}`;
