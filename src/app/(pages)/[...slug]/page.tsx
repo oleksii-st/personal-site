@@ -3,12 +3,14 @@ import {notFound} from "next/navigation";
 import {Metadata} from "next";
 import {mergeOpenGraph} from "@/utils/mergeOpenGraph";
 import {robotsNoIndex} from "@/utils/robotsNoIndex";
+import {RenderBlocks} from "@/components/RenderBlocks";
 
-type Props = {
+
+type PageProps = {
     params: { slug: string[] }
 }
 
-const Page = async ({ params: { slug = ['home'] } }: Props) => {
+const Page = async ({ params: { slug = ['home'] } }: PageProps) => {
     const page = await fetchPage(slug)
 
     if (!page) {
@@ -17,9 +19,7 @@ const Page = async ({ params: { slug = ['home'] } }: Props) => {
 
     return (
         <>
-            <div className="container">
-                {JSON.stringify(page)}
-            </div>
+            <RenderBlocks blocks={page.layout}/>
         </>
     )
 }

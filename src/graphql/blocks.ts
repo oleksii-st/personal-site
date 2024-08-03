@@ -3,6 +3,7 @@ import {LAYOUT} from "@/graphql/layout";
 
 export const HERO = `
     ...on Hero {
+        blockType
         image ${MEDIA_FIELDS}
         heading
         subheading
