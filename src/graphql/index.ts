@@ -96,7 +96,12 @@ export const fetchPage = async (
 export const fetchPages = async (next?: {
   revalidate: number;
 }): Promise<
-  Array<{ breadcrumbs: Page['breadcrumbs']; slug: string; updatedAt: string; indexable?: boolean }>
+  Array<{
+    breadcrumbs: Page['breadcrumbs'];
+    slug: string;
+    updatedAt: string;
+    disableIndex?: boolean;
+  }>
 > => {
   next = next || defaultNext;
 
