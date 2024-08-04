@@ -2,10 +2,10 @@ import React, { HTMLAttributes } from 'react';
 
 import { serializeLexical } from './serialize';
 import { cn } from '@/utils/cn';
+import type { SerializedLexicalNode } from 'lexical';
 
-type RichTextProps = HTMLAttributes<HTMLDivElement> & {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  content: any;
+type RichTextProps = Omit<HTMLAttributes<HTMLDivElement>, 'content'> & {
+  content?: { [p: string]: unknown }[] | null;
 };
 
 export const RichText = ({ className, content, ...rest }: RichTextProps) => {
@@ -13,13 +13,21 @@ export const RichText = ({ className, content, ...rest }: RichTextProps) => {
     return null;
   }
 
+  const hasRoot = 'root' in content;
+
+  if (!hasRoot) {
+    return null;
+  }
+
+  const contentTyped = content as { root: { children: SerializedLexicalNode[] } };
+
   return (
     <div className={cn('richText', className)} {...rest}>
       {content &&
         !Array.isArray(content) &&
         typeof content === 'object' &&
         'root' in content &&
-        serializeLexical({ nodes: content?.root?.children })}
+        serializeLexical({ nodes: contentTyped.root.children })}
     </div>
   );
 };
