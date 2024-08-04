@@ -11,6 +11,21 @@ export const HERO = `
     }
 `;
 
+const reusableContent = `
+    {
+        layout {
+            ${HERO}
+        }
+    }
+`;
+
+export const REUSABLE_CONTENT_BLOCK = `
+    ...on ReusableContentBlock {
+        blockType
+        reusableContent ${reusableContent}
+    }
+`;
+
 export const REUSABLE_CONTENT_CONFIG = `
 layout {
        ${HERO}

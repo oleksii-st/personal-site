@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { mergeOpenGraph } from '@/utils/mergeOpenGraph';
 import { robotsNoIndex } from '@/utils/robotsNoIndex';
-import { RenderBlocks } from '@/components/RenderBlocks';
+import { Blocks } from '@/components/Blocks';
 
 type PageProps = {
   params: { slug: string[] };
@@ -18,7 +18,7 @@ const Page = async ({ params: { slug = ['home'] } }: PageProps) => {
 
   return (
     <>
-      <RenderBlocks blocks={page.layout} />
+      <Blocks blocks={page.layout} />
     </>
   );
 };
