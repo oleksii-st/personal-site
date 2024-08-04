@@ -1,18 +1,21 @@
 import { HTMLAttributes } from 'react';
 import { NotFound } from '@/payload-types';
 import { RichText } from '@/components/RichText';
+import { cn } from '@/utils/cn';
 
 type ErrorMessageProps = HTMLAttributes<HTMLDivElement> & {
   heading?: NotFound['heading'];
   description?: NotFound['description'];
 };
 
-export const ErrorMessage = ({ heading, description, ...rest }: ErrorMessageProps) => {
+export const ErrorMessage = ({ heading, description, className, ...rest }: ErrorMessageProps) => {
   return (
-    <div {...rest}>
-      {heading && <h1>{heading}</h1>}
+    <div className={cn('my-auto', className)} {...rest}>
+      <div className="container">
+        {heading && <h1 className={cn('text-center mb-4 text-6xl')}>{heading}</h1>}
 
-      {description && <RichText content={description} />}
+        {description && <RichText className={'rich-text-big'} content={description} />}
+      </div>
     </div>
   );
 };

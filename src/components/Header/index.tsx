@@ -5,9 +5,9 @@ import { cn } from '@/utils/cn';
 
 type HeaderProps = HTMLAttributes<HTMLHeadingElement> & HeaderType;
 
-export const Header = ({ logo, ...rest }: HeaderProps) => {
+export const Header = ({ logo, className, ...rest }: HeaderProps) => {
   return (
-    <header {...rest}>
+    <header className={cn('shadow-3xl sm:shadow-none', className)} {...rest}>
       <div className="container">
         <div className="flex py-4">
           {logo && (

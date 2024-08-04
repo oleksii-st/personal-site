@@ -5,13 +5,13 @@ import { CMSLink } from '@/components/CMSLink';
 
 type HeaderProps = HTMLAttributes<HTMLElement> & FooterType;
 
-export const Footer = ({ columns, copyright, ...rest }: HeaderProps) => {
+export const Footer = ({ columns, copyright, className, ...rest }: HeaderProps) => {
   const copyrighText = copyright?.replaceAll('{{year}}', String(new Date().getFullYear()));
 
   return (
-    <footer {...rest}>
+    <footer className={cn('shadow-3xl sm:shadow-none', className)} {...rest}>
       <div className="container">
-        <div className={cn('flex flex-col gap-4 py-4 text-md', 'sm:text:lg sm:py-6')}>
+        <div className={cn('flex flex-col gap-4 py-8 text-md', 'sm:text:lg sm:py-6')}>
           {columns?.length && (
             <div
               className={cn('flex flex-col gap-4 items-center', 'sm:flex-row sm:justify-between')}

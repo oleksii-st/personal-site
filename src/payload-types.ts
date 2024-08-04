@@ -193,7 +193,7 @@ export interface Link {
     value: string | Page;
   } | null;
   url?: string | null;
-  label: string;
+  label?: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -14,6 +14,30 @@
     color: var(--headings-color, #000000);
   }
 
+  h1 {
+    @apply text-4xl
+  }
+
+  h2 {
+    @apply text-3xl
+  }
+
+  h3 {
+    @apply text-2xl
+  }
+
+  h4 {
+    @apply text-xl
+  }
+
+  h5 {
+    @apply text-lg
+  }
+
+  h6 {
+    @apply text-base
+  }
+
   *:focus-visible {
     outline: 2px solid black;
     outline-offset: 2px;
@@ -21,5 +45,13 @@
 
   .text-link {
     @apply underline underline-offset-2 hover:no-underline
+  }
+
+  .rich-text a {
+    @apply text-link;
+  }
+
+  .rich-text-big p {
+    @apply text-2xl mb-2;
   }
 }

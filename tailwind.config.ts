@@ -12,6 +12,9 @@ const config: Config = {
         sans: ['var(--font-geist-sans)'],
         mono: ['var(--font-geist-mono)'],
       },
+      boxShadow: {
+        '3xl': 'rgba(99, 99, 99, 0.2) 0px 0 8px 0px',
+      },
     },
   },
   future: {

@@ -17,6 +17,7 @@ import {
   IS_UNDERLINE,
 } from './nodeFormat';
 import { toKebabCase } from '@/utils/toKebabCase';
+import { cn } from '@/utils/cn';
 
 interface Props {
   nodes: SerializedLexicalNode[];
@@ -26,10 +27,18 @@ export function serializeLexical({ nodes }: Props) {
   return (
     <Fragment>
       {nodes?.map((_node, index) => {
+        const node = _node as SerializedTextNode;
+        const format = ['left', 'right', 'center', 'justify'].includes(String(node.format))
+          ? 'text-' + String(node.format)
+          : undefined;
+
         if (_node.type === 'text') {
-          const node = _node as SerializedTextNode;
           let text = (
-            <span dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }} key={index} />
+            <span
+              dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }}
+              key={index}
+              className={format}
+            />
           );
           if (node.format & IS_BOLD) {
             text = <strong key={index}>{text}</strong>;
@@ -91,21 +100,30 @@ export function serializeLexical({ nodes }: Props) {
             return <br key={index} />;
           }
           case 'paragraph': {
-            return <p key={index}>{serializedChildren}</p>;
+            return (
+              <p key={index} className={format}>
+                {serializedChildren}
+              </p>
+            );
           }
           case 'heading': {
             const node = _node as SerializedHeadingNode;
 
             type Heading = Extract<keyof JSX.IntrinsicElements, 'h1' | 'h2' | 'h3' | 'h4' | 'h5'>;
             const Tag = node?.tag as Heading;
+
             return (
-              <Tag key={index} id={toKebabCase(String(node.children))}>
+              <Tag key={index} className={format} id={toKebabCase(String(node.children))}>
                 {serializedChildren}
               </Tag>
             );
           }
           case 'label':
-            return <p key={index}>{serializedChildren}</p>;
+            return (
+              <p className={format} key={index}>
+                {serializedChildren}
+              </p>
+            );
 
           case 'list': {
             const node = _node as SerializedListNode;
@@ -113,7 +131,7 @@ export function serializeLexical({ nodes }: Props) {
             type List = Extract<keyof JSX.IntrinsicElements, 'ol' | 'ul'>;
             const Tag = node?.tag as List;
             return (
-              <Tag className={node?.listType} key={index}>
+              <Tag className={cn(node?.listType, format)} key={index}>
                 {serializedChildren}
               </Tag>
             );
@@ -129,7 +147,7 @@ export function serializeLexical({ nodes }: Props) {
                     node.checked
                       ? 'component--list-item-checkbox-checked'
                       : 'component--list-item-checked-unchecked'
-                  }`}
+                  } ${format}`}
                   key={index}
                   role="checkbox"
                   tabIndex={-1}
@@ -140,36 +158,43 @@ export function serializeLexical({ nodes }: Props) {
               );
             } else {
               return (
-                <li key={index} value={node?.value}>
+                <li className={format} key={index} value={node?.value}>
                   {serializedChildren}
                 </li>
               );
             }
           }
           case 'quote': {
-            return <blockquote key={index}>{serializedChildren}</blockquote>;
+            return (
+              <blockquote key={index} className={format}>
+                {serializedChildren}
+              </blockquote>
+            );
           }
           case 'link': {
             const node = _node as SerializedLinkNode;
 
             const fields: LinkFields = node.fields;
-
-            if (fields.linkType === 'custom') {
-              const rel = fields.disableIndex ? 'noopener noreferrer' : undefined;
-
-              return (
-                <Link
-                  href={escapeHTML(fields.url)}
-                  key={index}
-                  rel={rel}
-                  target={fields.newTab ? '_blank' : undefined}
-                >
-                  {serializedChildren}
-                </Link>
-              );
-            } else {
-              return <span key={index}>Internal link coming soon</span>;
+            const rel = fields.disableIndex ? 'noopener noreferrer' : undefined;
+            const doc = fields.doc?.value ?? {};
+            let slug = 'slug' in doc ? doc.slug : null;
+            if (slug === 'home') {
+              slug = '';
             }
+
+            const href = slug || slug === '' ? '/' + slug : escapeHTML(fields.url);
+
+            return (
+              <Link
+                href={href}
+                key={index}
+                rel={rel}
+                target={fields.newTab ? '_blank' : undefined}
+                className={format}
+              >
+                {serializedChildren}
+              </Link>
+            );
           }
 
           default:

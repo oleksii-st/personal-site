@@ -22,7 +22,7 @@ export const RichText = ({ className, content, ...rest }: RichTextProps) => {
   const contentTyped = content as { root: { children: SerializedLexicalNode[] } };
 
   return (
-    <div className={cn('richText', className)} {...rest}>
+    <div className={cn('rich-text', className)} {...rest}>
       {content &&
         !Array.isArray(content) &&
         typeof content === 'object' &&
