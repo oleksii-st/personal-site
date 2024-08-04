@@ -15,7 +15,12 @@
     "**/*.{ts,tsx,js,json,md}": "yarn format"
   },
   "dependencies": {
+    "@lexical/list": "^0.17.0",
+    "@lexical/rich-text": "^0.17.0",
+    "@payloadcms/richtext-lexical": "^0.11.2",
+    "@types/escape-html": "^1.0.4",
     "clsx": "^2.1.1",
+    "escape-html": "^1.0.3",
     "geist": "^1.3.1",
     "next": "14.2.5",
     "prettier": "^3.3.3",
