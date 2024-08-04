@@ -14,19 +14,22 @@ export const RenderBlocks = ({ blocks }: { blocks: LayoutBlocks }) => {
     return null;
   }
 
-  return (
-    <>
-      {blocks.map((block, index) => {
-        const blockType = block.blockType;
-        const Block = blockComponents[blockType];
+  const getBlocksToShow = (block: LayoutBlocks[number]) => {
+    const blockType = block.blockType;
 
-        if (!Block) {
-          return null;
-        }
+    const isBlockExist = Object.keys(blockComponents).includes(blockType);
+    const isBlockHidden = 'hideBlock' in block ? block.hideBlock : false;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return <Block key={index} {...(block as any)} isFirst={index === 0} />;
-      })}
-    </>
-  );
+    return isBlockExist && !isBlockHidden;
+  };
+
+  const renderBlocks = (block: LayoutBlocks[number], index: number) => {
+    const blockType = block.blockType;
+    const Block = blockComponents[blockType];
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return <Block key={index} {...(block as any)} isFirst={index === 0} />;
+  };
+
+  return <>{blocks.filter(getBlocksToShow).map(renderBlocks)}</>;
 };
