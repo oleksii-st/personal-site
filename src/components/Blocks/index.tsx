@@ -1,12 +1,14 @@
 import { Page, ReusableContent } from '@/payload-types';
 import { Hero } from '@/blocks/Hero';
+import { RichTextBlock } from '@/blocks/RichText';
 
 type LayoutBlocks = Page['layout'];
 
-type BlockComponent = typeof Hero;
+type BlockComponent = typeof Hero | typeof RichTextBlock;
 
 const blockComponents: Record<string, BlockComponent> = {
   hero: Hero,
+  richText: RichTextBlock,
 };
 
 type BlocksProps = {

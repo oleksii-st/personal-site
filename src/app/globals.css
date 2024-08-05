@@ -10,6 +10,12 @@
     padding: 0 var(--container-padding, 16px);
   }
 
+
+  body {
+    @apply prose;
+    max-width: 100%;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     color: var(--headings-color, #000000);
   }

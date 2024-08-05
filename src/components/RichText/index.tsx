@@ -3,9 +3,10 @@ import React, { HTMLAttributes } from 'react';
 import { serializeLexical } from './serialize';
 import { cn } from '@/utils/cn';
 import type { SerializedLexicalNode } from 'lexical';
+import { RichTextType } from '@/utils/types';
 
 type RichTextProps = Omit<HTMLAttributes<HTMLDivElement>, 'content'> & {
-  content?: { [p: string]: unknown }[] | null;
+  content?: RichTextType;
 };
 
 export const RichText = ({ className, content, ...rest }: RichTextProps) => {

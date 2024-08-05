@@ -1,0 +1,22 @@
+import React from 'react';
+import { Richtext as RichTextBlockType } from '@/payload-types';
+import { Block } from '@/utils/types';
+import { Section } from '@/components/Section';
+import { RichText } from '@/components/RichText';
+
+export type RichTextBlockProps = Block<RichTextBlockType>;
+
+export const RichTextBlock = ({
+  content,
+  paddingTop,
+  paddingBottom,
+  breakpoints,
+}: RichTextBlockProps) => {
+  return (
+    <Section paddingTop={paddingTop} paddingBottom={paddingBottom} breakpoints={breakpoints}>
+      <div className="container">
+        <RichText content={content} />
+      </div>
+    </Section>
+  );
+};

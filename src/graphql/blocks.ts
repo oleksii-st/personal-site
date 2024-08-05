@@ -11,10 +11,19 @@ export const HERO = `
     }
 `;
 
+export const RICH_TEXT = `
+    ...on Richtext {
+        blockType
+        content
+        ${LAYOUT}
+    }
+`;
+
 const reusableContent = `
     {
         layout {
             ${HERO}
+            ${RICH_TEXT}
         }
     }
 `;
@@ -25,8 +34,3 @@ export const REUSABLE_CONTENT_BLOCK = `
         reusableContent ${reusableContent}
     }
 `;
-
-export const REUSABLE_CONTENT_CONFIG = `
-layout {
-       ${HERO}
-     }`;

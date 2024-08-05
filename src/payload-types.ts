@@ -193,7 +193,7 @@ export interface Link {
     value: string | Page;
   } | null;
   url?: string | null;
-  label?: string;
+  label?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -228,7 +228,7 @@ export interface Experience {
   heading?: string | null;
   jobs?:
     | {
-        link: Link;
+        link?: Link;
         icon: string | Media;
         id?: string | null;
       }[]
@@ -253,10 +253,21 @@ export interface Experience {
  * via the `definition` "Richtext".
  */
 export interface Richtext {
-  heading?: string | null;
   content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
     [k: string]: unknown;
-  }[];
+  };
   hideBlock?: boolean | null;
   paddingTop?: number | null;
   paddingBottom?: number | null;
@@ -377,7 +388,7 @@ export interface Footer {
     | {
         navItems?:
           | {
-              link: Link;
+              link?: Link;
               id?: string | null;
             }[]
           | null;
@@ -395,11 +406,21 @@ export interface Footer {
 export interface NotFound {
   id: string;
   heading?: string | null;
-  description?:
-    | {
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
         [k: string]: unknown;
-      }[]
-    | null;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
