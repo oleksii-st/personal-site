@@ -12,7 +12,6 @@
 
 
   body {
-    @apply prose;
     max-width: 100%;
   }
 

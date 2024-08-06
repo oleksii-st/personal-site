@@ -113,7 +113,13 @@ export function serializeLexical({ nodes }: Props) {
             const Tag = node?.tag as Heading;
 
             return (
-              <Tag key={index} className={format} id={toKebabCase(String(node.children))}>
+              <Tag
+                key={index}
+                className={format}
+                id={toKebabCase(
+                  String((node.children[0] as unknown as { text: string }).text ?? ''),
+                )}
+              >
                 {serializedChildren}
               </Tag>
             );
