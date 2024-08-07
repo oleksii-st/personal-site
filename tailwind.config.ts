@@ -16,6 +16,13 @@ const config: Config = {
       boxShadow: {
         '3xl': 'rgba(99, 99, 99, 0.2) 0px 0 8px 0px',
       },
+      typography: () => ({
+        basic: {
+          css: {
+            '--tw-prose-code': '#172B4D',
+          },
+        },
+      }),
     },
   },
   future: {
