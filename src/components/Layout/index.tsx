@@ -24,8 +24,8 @@ export const Layout = async ({ children }: { children: ReactNode }) => {
       <Header {...header} />
       <main
         className={cn(
-          'prose prose-basic prose-code:bg-[#F4F5F7] prose-code:before:content-none prose-code:after:content-none prose-code:px-0.5 prose-code:py-1',
-          'flex-auto flex flex-col pt-5 pb-5 max-w-full',
+          'prose prose-basic prose-code:bg-[#F4F5F7] prose-code:before:content-none prose-code:after:content-none prose-code:px-0.5 prose-code:py-1 prose-h2:mt-0',
+          'flex-auto flex flex-col max-w-full',
         )}
       >
         {children}

@@ -145,30 +145,11 @@ export function serializeLexical({ nodes }: Props) {
           case 'listitem': {
             const node = _node as SerializedListItemNode;
 
-            if (node?.checked != null) {
-              return (
-                <li
-                  aria-checked={node.checked ? 'true' : 'false'}
-                  className={`component--list-item-checkbox ${
-                    node.checked
-                      ? 'component--list-item-checkbox-checked'
-                      : 'component--list-item-checked-unchecked'
-                  } ${format}`}
-                  key={index}
-                  role="checkbox"
-                  tabIndex={-1}
-                  value={node?.value}
-                >
-                  {serializedChildren}
-                </li>
-              );
-            } else {
-              return (
-                <li className={format} key={index} value={node?.value}>
-                  {serializedChildren}
-                </li>
-              );
-            }
+            return (
+              <li className={format} key={index} value={node?.value}>
+                {serializedChildren}
+              </li>
+            );
           }
           case 'quote': {
             return (

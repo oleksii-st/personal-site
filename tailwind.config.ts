@@ -20,6 +20,8 @@ const config: Config = {
         basic: {
           css: {
             '--tw-prose-code': '#172B4D',
+            '--tw-prose-bullets': '#000000',
+            '--tw-prose-counters': '#000000',
           },
         },
       }),

@@ -59,4 +59,16 @@
   .rich-text-big p {
     @apply text-2xl mb-2;
   }
+
+  .prose {
+    color: inherit;
+  }
+
+  .prose .text-right {
+    text-align: right;
+  }
+
+  .prose .text-justify {
+    text-align: justify;
+  }
 }
