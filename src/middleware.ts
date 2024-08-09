@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+
 import { fetchRedirects } from '@/graphql';
 
 export async function middleware(request: Request) {

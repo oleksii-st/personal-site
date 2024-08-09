@@ -1,6 +1,7 @@
 import { HTMLAttributes } from 'react';
-import { NotFound } from '@/payload-types';
+
 import { RichText } from '@/components/RichText';
+import { NotFound } from '@/payload-types';
 import { cn } from '@/utils/cn';
 
 type ErrorMessageProps = HTMLAttributes<HTMLDivElement> & {

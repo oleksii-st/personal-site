@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from 'react';
+
+import { CMSLink } from '@/components/CMSLink';
 import { Footer as FooterType } from '@/payload-types';
 import { cn } from '@/utils/cn';
-import { CMSLink } from '@/components/CMSLink';
 
 type HeaderProps = HTMLAttributes<HTMLElement> & FooterType;
 

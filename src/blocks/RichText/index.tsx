@@ -1,8 +1,9 @@
 import React from 'react';
+
+import { RichText } from '@/components/RichText';
+import { Section } from '@/components/Section';
 import { Richtext as RichTextBlockType } from '@/payload-types';
 import { Block } from '@/utils/types';
-import { Section } from '@/components/Section';
-import { RichText } from '@/components/RichText';
 
 export type RichTextBlockProps = Block<RichTextBlockType>;
 

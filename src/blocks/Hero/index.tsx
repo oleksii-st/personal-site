@@ -1,7 +1,8 @@
 import React from 'react';
+
+import { Section } from '@/components/Section';
 import { Hero as HeroType } from '@/payload-types';
 import { Block } from '@/utils/types';
-import { Section } from '@/components/Section';
 
 export type HeroProps = Block<HeroType>;
 

@@ -1,5 +1,5 @@
-import { MEDIA_FIELDS } from '@/graphql/media';
 import { LAYOUT } from '@/graphql/layout';
+import { MEDIA_FIELDS } from '@/graphql/media';
 
 export const HERO = `
     ...on Hero {

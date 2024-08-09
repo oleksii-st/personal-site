@@ -1,9 +1,10 @@
-import { fetchPage, fetchPages } from '@/graphql';
-import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+
+import { Blocks } from '@/components/Blocks';
+import { fetchPage, fetchPages } from '@/graphql';
 import { mergeOpenGraph } from '@/utils/mergeOpenGraph';
 import { robotsNoIndex } from '@/utils/robotsNoIndex';
-import { Blocks } from '@/components/Blocks';
 
 type PageProps = {
   params: { slug: string[] };

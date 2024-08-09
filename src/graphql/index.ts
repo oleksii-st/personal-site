@@ -1,7 +1,7 @@
-import { Footer, Header, NotFound, Page, Settings, Redirect } from '@/payload-types';
 import { GLOBALS, NOT_FOUND } from '@/graphql/globals';
 import { PAGE, PAGES } from '@/graphql/pages';
 import { REDIRECTS } from '@/graphql/redirects';
+import { Footer, Header, NotFound, Page, Redirect, Settings } from '@/payload-types';
 
 const defaultNext = {
   revalidate: 0,

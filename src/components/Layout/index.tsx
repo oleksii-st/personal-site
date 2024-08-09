@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
-import { fetchGlobals } from '@/graphql';
-import { Header } from '@/components/Header';
+
 import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
+import { fetchGlobals } from '@/graphql';
 import { cn } from '@/utils/cn';
 
 export const Layout = async ({ children }: { children: ReactNode }) => {

@@ -1,6 +1,7 @@
-import React, { HTMLAttributes } from 'react';
-import { Header as HeaderType } from '@/payload-types';
 import Link from 'next/link';
+import React, { HTMLAttributes } from 'react';
+
+import { Header as HeaderType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 
 type HeaderProps = HTMLAttributes<HTMLHeadingElement> & HeaderType;

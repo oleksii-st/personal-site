@@ -13,11 +13,22 @@ module.exports = [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    plugins: {
+      import: require('eslint-plugin-import'),
+    },
     rules: {
-      'no-var': 'error',
-      'prefer-const': 'error',
       'react/react-in-jsx-scope': 'off',
-      'react/jsx-uses-react': 'off',
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
     },
   },
 ];

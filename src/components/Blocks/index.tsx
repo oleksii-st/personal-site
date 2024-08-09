@@ -1,6 +1,6 @@
-import { Page, ReusableContent } from '@/payload-types';
 import { Hero } from '@/blocks/Hero';
 import { RichTextBlock } from '@/blocks/RichText';
+import { Page, ReusableContent } from '@/payload-types';
 
 type LayoutBlocks = Page['layout'];
 

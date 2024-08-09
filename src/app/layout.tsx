@@ -1,8 +1,9 @@
 import './globals.css';
-import { Layout } from '@/components/Layout';
-import { ReactNode } from 'react';
-import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
+import { ReactNode } from 'react';
+
+import { Layout } from '@/components/Layout';
 import { cn } from '@/utils/cn';
 
 export default function RootLayout({

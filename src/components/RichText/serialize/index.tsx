@@ -1,9 +1,8 @@
 import type { SerializedListItemNode, SerializedListNode } from '@lexical/list';
 import type { SerializedHeadingNode } from '@lexical/rich-text';
 import type { LinkFields, SerializedLinkNode } from '@payloadcms/richtext-lexical';
-import type { SerializedElementNode, SerializedLexicalNode, SerializedTextNode } from 'lexical';
-
 import escapeHTML from 'escape-html';
+import type { SerializedElementNode, SerializedLexicalNode, SerializedTextNode } from 'lexical';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
 
@@ -16,8 +15,9 @@ import {
   IS_SUPERSCRIPT,
   IS_UNDERLINE,
 } from './nodeFormat';
-import { toKebabCase } from '@/utils/toKebabCase';
+
 import { cn } from '@/utils/cn';
+import { toKebabCase } from '@/utils/toKebabCase';
 
 interface Props {
   nodes: SerializedLexicalNode[];

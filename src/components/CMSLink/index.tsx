@@ -1,6 +1,7 @@
-import React, { HTMLAttributes, ReactNode } from 'react';
-import { Link as LinkType, Page } from '@/payload-types';
 import Link from 'next/link';
+import React, { HTMLAttributes, ReactNode } from 'react';
+
+import { Link as LinkType, Page } from '@/payload-types';
 
 type CMSLinkProps = HTMLAttributes<HTMLAnchorElement> & LinkType & { children?: ReactNode };
 
