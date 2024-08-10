@@ -16,6 +16,8 @@ import {
   IS_UNDERLINE,
 } from './nodeFormat';
 
+import { Media } from '@/components/Media';
+import { Media as MediaType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 import { toKebabCase } from '@/utils/toKebabCase';
 
@@ -181,6 +183,22 @@ export function serializeLexical({ nodes }: Props) {
               >
                 {serializedChildren}
               </Link>
+            );
+          }
+
+          case 'horizontalrule': {
+            return <hr key={index} />;
+          }
+
+          case 'upload': {
+            const source = (node as unknown as { value: MediaType }).value;
+
+            return (
+              <Media
+                source={source}
+                className="mx-auto"
+                sizes="(max-width: 1440px) calc(100vw - 32px), 1408px"
+              />
             );
           }
 
