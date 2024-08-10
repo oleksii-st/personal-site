@@ -71,4 +71,12 @@
   .prose .text-justify {
     text-align: justify;
   }
+
+  .code-block button {
+    border: 1px solid;
+  }
+
+  .code-block button:focus-visible {
+    outline: 2px solid #FFFFFF;
+  }
 }

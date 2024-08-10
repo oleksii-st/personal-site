@@ -17,6 +17,7 @@ import {
 } from './nodeFormat';
 
 import { Media } from '@/components/Media';
+import { CodeBlock } from '@/components/RichText/CodeBlock';
 import { Media as MediaType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 import { toKebabCase } from '@/utils/toKebabCase';
@@ -200,6 +201,15 @@ export function serializeLexical({ nodes }: Props) {
                 sizes="(max-width: 1440px) calc(100vw - 32px), 1408px"
               />
             );
+          }
+
+          case 'code': {
+            const codeNode = node as unknown as {
+              language: string;
+              children: { type: string; text: string }[];
+            };
+
+            return <CodeBlock items={codeNode.children} language={codeNode.language} />;
           }
 
           default:
