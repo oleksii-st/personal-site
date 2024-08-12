@@ -71,4 +71,12 @@
   .prose .text-justify {
     text-align: justify;
   }
+
+  .swiper:not(.swiper-initialized).five-items .swiper-wrapper {
+    @apply gap-[50px];
+  }
+
+  .swiper:not(.swiper-initialized).five-items .swiper-wrapper .swiper-slide {
+    @apply w-[calc(20%-40px)];
+  }
 }

@@ -11,6 +11,17 @@ export const HERO = `
     }
 `;
 
+export const FEATURES = `
+    ...on Features {
+        blockType
+        heading
+        features {
+            icon ${MEDIA_FIELDS}
+        }
+        ${LAYOUT}
+    }
+`;
+
 export const RICH_TEXT = `
     ...on Richtext {
         blockType
@@ -24,6 +35,7 @@ const reusableContent = `
         layout {
             ${HERO}
             ${RICH_TEXT}
+            ${FEATURES}
         }
     }
 `;
