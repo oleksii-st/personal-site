@@ -46,9 +46,17 @@ export const Features = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} breakpoints={breakpoints}>
       <div className="container">
-        {heading && <h2 className={cn('text-5xl')}>{heading}</h2>}
+        {heading && <h2 className={cn('text-4xl text-center', 'sm:text-5xl')}>{heading}</h2>}
 
-        <div className={cn('flex gap-4 items-center')}>
+        <div
+          className={cn(
+            'flex gap-4 items-center w-full mx-auto',
+            'min-[420px]:max-w-[398px]',
+            'min-[576px]:max-w-[688px]',
+            'min-[768px]:max-w-[881px]',
+            'min-[1099px]:max-w-[100%]',
+          )}
+        >
           <button
             className={cn('opacity-100 transition-opacity', 'hover:opacity-50')}
             onClick={handlePrev}
@@ -59,8 +67,28 @@ export const Features = ({
           <Swiper
             className="swiper five-items"
             modules={[Navigation, Autoplay]}
-            spaceBetween={50}
-            slidesPerView={5}
+            spaceBetween={16}
+            slidesPerView={1}
+            breakpoints={{
+              576: {
+                slidesPerView: 2,
+                spaceBetween: 35,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1099: {
+                slidesPerView: 4,
+              },
+              1200: {
+                slidesPerView: 5,
+                spaceBetween: 40,
+              },
+              1360: {
+                slidesPerView: 5,
+                spaceBetween: 50,
+              },
+            }}
             ref={sliderRef}
             autoplay={{
               pauseOnMouseEnter: true,
@@ -77,7 +105,7 @@ export const Features = ({
                   )}
                 >
                   <Media
-                    className="aspect-square object-contain"
+                    className="aspect-square object-contain w-[70%] max-w-[130px] m-4"
                     source={icon}
                     width={130}
                     height={130}
