@@ -53,7 +53,7 @@ export const Features = ({
             'flex gap-4 items-center w-full mx-auto',
             'min-[420px]:max-w-[398px]',
             'min-[576px]:max-w-[688px]',
-            'min-[768px]:max-w-[881px]',
+            'sm:max-w-[881px]',
             'min-[1099px]:max-w-[100%]',
           )}
         >
@@ -65,20 +65,22 @@ export const Features = ({
           </button>
 
           <Swiper
-            className="swiper five-items"
+            className="swiper features-swiper"
             modules={[Navigation, Autoplay]}
             spaceBetween={16}
             slidesPerView={1}
             breakpoints={{
               576: {
                 slidesPerView: 2,
-                spaceBetween: 35,
+                spaceBetween: 36,
               },
               768: {
                 slidesPerView: 3,
+                spaceBetween: 36,
               },
               1099: {
                 slidesPerView: 4,
+                spaceBetween: 36,
               },
               1200: {
                 slidesPerView: 5,
