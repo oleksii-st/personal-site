@@ -46,7 +46,7 @@ export const Features = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} breakpoints={breakpoints}>
       <div className="container">
-        {heading && <h2 className={cn('text-4xl text-center', 'sm:text-5xl')}>{heading}</h2>}
+        {heading && <h2 className="text-center">{heading}</h2>}
 
         <div
           className={cn(
@@ -97,7 +97,6 @@ export const Features = ({
               disableOnInteraction: true,
             }}
             loop
-            onSlideChange={(swiper) => console.log(swiper)}
           >
             {features.map(({ icon }, index) => (
               <SwiperSlide className="!h-auto" key={index}>
