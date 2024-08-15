@@ -26,16 +26,17 @@ export const Hero = ({
           className={cn(
             'max-w-[500px] mx-auto flex flex-col gap-4',
             'sm:max-w-full sm:flex-row sm:gap-8 sm:items-center',
+            'md:gap-14',
           )}
         >
           {image && (
             <div className="sm:w-[calc(50%-16px)]">
               <Media
                 className="w-full rounded-full my-0"
-                sizes="(max-width: 767px) calc(100vw - 32px), min(calc(50vw - 48px), 704px)"
+                sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 991px) min(calc(50vw - 48px), 692px), min(calc(50vw - 60px), 692px)"
                 source={image}
-                width={704}
-                height={704}
+                width={692}
+                height={692}
                 loading={loading}
               />
             </div>

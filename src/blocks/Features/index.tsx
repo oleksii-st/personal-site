@@ -88,7 +88,7 @@ export const Features = ({
               },
               1360: {
                 slidesPerView: 5,
-                spaceBetween: 50,
+                spaceBetween: 40,
               },
             }}
             ref={sliderRef}
