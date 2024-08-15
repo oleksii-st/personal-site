@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { Blocks } from '@/components/Blocks';
 import { fetchPage, fetchPages } from '@/graphql';
+import { IS_PRODUCTION } from '@/utils/constants';
 import { mergeOpenGraph } from '@/utils/mergeOpenGraph';
 import { robotsNoIndex } from '@/utils/robotsNoIndex';
 
@@ -39,7 +40,7 @@ export async function generateMetadata({ params: { slug } }: PageProps): Promise
   const page = await fetchPage(slug);
   let robots = {};
 
-  if (page?.disableIndex) {
+  if (page?.disableIndex || !IS_PRODUCTION) {
     robots = robotsNoIndex;
   }
 

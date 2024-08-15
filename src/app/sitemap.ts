@@ -1,6 +1,11 @@
 import { fetchPages, fetchRedirects } from '@/graphql';
+import { IS_PRODUCTION } from '@/utils/constants';
 
 export default async function sitemap() {
+  if (!IS_PRODUCTION) {
+    return [];
+  }
+
   const next = { revalidate: 1440 };
   const baseUrl = process.env.SITEMAP_URL as string;
   const pages = await fetchPages(next);
