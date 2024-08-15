@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Media } from '@/components/Media';
+import { Media } from '@/components';
 import { Section } from '@/components/Section';
 import { Hero as HeroType } from '@/payload-types';
 import { cn } from '@/utils/cn';

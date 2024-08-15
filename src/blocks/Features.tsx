@@ -7,7 +7,7 @@ import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import { Media } from '@/components/Media';
+import { Media } from '@/components';
 import { Section } from '@/components/Section';
 import { ArrowLeft } from '@/icons/ArrowLeft';
 import { ArrowRight } from '@/icons/ArrowRight';

@@ -16,7 +16,7 @@ import {
   IS_UNDERLINE,
 } from './nodeFormat';
 
-import { Media } from '@/components/Media';
+import { Media } from '@/components';
 import { Media as MediaType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 import { toKebabCase } from '@/utils/toKebabCase';
