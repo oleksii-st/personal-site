@@ -44,7 +44,7 @@ export const Hero = ({
 
           {Boolean(heading || subheading) && (
             <div className={cn('text-center', 'sm:text-left sm:w-[calc(50%-16px)]')}>
-              {heading && <h1 className={cn('mb-4', 'sm:md-8')}>{heading}</h1>}
+              {heading && <h1 className={cn('mb-4', 'sm:md-8 text-left')}>{heading}</h1>}
 
               {subheading && (
                 <p className={cn('m-0 text-xl', 'sm:text-2xl', 'md:text-4xl')}>{subheading}</p>

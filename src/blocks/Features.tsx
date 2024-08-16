@@ -46,7 +46,7 @@ export const Features = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} breakpoints={breakpoints}>
       <div className="container">
-        {heading && <h2 className="text-center">{heading}</h2>}
+        {heading && <h2>{heading}</h2>}
 
         <div
           className={cn(

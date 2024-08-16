@@ -1,16 +1,18 @@
 import { Features } from '@/blocks/Features';
 import { Hero } from '@/blocks/Hero';
+import { Optimization } from '@/blocks/Optimization';
 import { RichTextBlock } from '@/blocks/RichText';
 import { Page, ReusableContent } from '@/payload-types';
 
 type LayoutBlocks = Page['layout'];
 
-type BlockComponent = typeof Hero | typeof RichTextBlock | typeof Features;
+type BlockComponent = typeof Hero | typeof RichTextBlock | typeof Features | typeof Optimization;
 
 const blockComponents: Record<string, BlockComponent> = {
   hero: Hero,
   richText: RichTextBlock,
   features: Features,
+  optimization: Optimization,
 };
 
 type BlocksProps = {

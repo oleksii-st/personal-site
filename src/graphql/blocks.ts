@@ -30,12 +30,23 @@ export const RICH_TEXT = `
     }
 `;
 
+export const OPTIMIZATION = `
+    ...on Optimization {
+        blockType
+        heading
+        image ${MEDIA_FIELDS}
+        description
+        ${LAYOUT}
+    }
+`;
+
 const reusableContent = `
     {
         layout {
             ${HERO}
             ${RICH_TEXT}
             ${FEATURES}
+            ${OPTIMIZATION}
         }
     }
 `;
