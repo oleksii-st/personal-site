@@ -197,7 +197,7 @@ export function serializeLexical({ nodes }: Props) {
               <Media
                 source={source}
                 className="mx-auto"
-                sizes="(max-width: 1440px) calc(100vw - 32px), 1408px"
+                sizes="(min-width: 1440px) 1408px, calc(100vw - 32px)"
               />
             );
           }
