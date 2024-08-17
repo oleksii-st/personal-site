@@ -9,12 +9,20 @@ export const Layout = async ({ children }: { children: ReactNode }) => {
   const {
     header,
     footer,
-    settings: { container, horizontalPaddings, backgroundColor, textColor, headingsColor },
+    settings: {
+      container,
+      horizontalPaddings,
+      horizontalPaddingsDesktop,
+      backgroundColor,
+      textColor,
+      headingsColor,
+    },
   } = await fetchGlobals();
 
   const styles = {
     '--container-width': `${container}px`,
     '--container-padding': `${horizontalPaddings}px`,
+    '--container-padding-desktop': `${horizontalPaddingsDesktop}px`,
     '--headings-color': headingsColor,
     backgroundColor,
     color: textColor,

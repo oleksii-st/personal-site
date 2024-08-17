@@ -439,6 +439,7 @@ export interface Settings {
   id: string;
   container: number;
   horizontalPaddings: number;
+  horizontalPaddingsDesktop: number;
   backgroundColor: string;
   textColor: string;
   headingsColor: string;

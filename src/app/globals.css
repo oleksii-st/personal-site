@@ -5,9 +5,13 @@
 @layer utilities {
   .container {
     width: 100%;
-    max-width: calc(var(--container-width, 100%) + var(--container-padding, 16px) * 2);
+    max-width: calc(var(--container-width, 100%) + var(--container-padding-desktop, 32px) * 2);
     margin: 0 auto;
     padding: 0 var(--container-padding, 16px);
+
+    @media screen and (min-width: 768px) {
+      padding: 0 var(--container-padding-desktop, 32px);
+    }
   }
 
 

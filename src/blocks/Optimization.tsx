@@ -27,7 +27,7 @@ export const Optimization = ({
         {image && (
           <Media
             className="w-full max-w-[600px] border-2 rounded-2xl mx-auto my-0"
-            sizes="(min-width: 768px) min(calc(50vw - 48px), 692px), (min-width: 992px) min(calc(50vw - 60px), 692px), calc(100vw - 32px)"
+            sizes="(min-width: 768px) min(calc(50vw - 64px), 692px), (min-width: 992px) min(calc(50vw - 72px), 692px), calc(100vw - 32px)"
             source={image}
             width={692}
             height={692}

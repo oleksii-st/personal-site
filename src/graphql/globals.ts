@@ -16,6 +16,7 @@ export const GLOBALS = `
     Settings {
         container
         horizontalPaddings
+        horizontalPaddingsDesktop
         backgroundColor
         textColor
         headingsColor
