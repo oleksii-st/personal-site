@@ -29,7 +29,7 @@ export const Section = ({
     if (!maxWidth && paddingTop && paddingBottom) return '';
 
     return `
-      @media screen and (max-width: ${maxWidth}px) {
+      @media screen and (min-width: ${maxWidth}px) {
        [id="${id}"] {
           padding-top: ${paddingTop}px;
           padding-bottom: ${paddingBottom}px; 
