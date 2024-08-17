@@ -135,7 +135,10 @@ export interface Features {
  */
 export interface Optimization {
   heading?: string | null;
+  subheading?: string | null;
+  link?: Link;
   image: string | Media;
+  imageDesktop: string | Media;
   description?: string | null;
   hideBlock?: boolean | null;
   paddingTop?: number | null;
@@ -151,6 +154,21 @@ export interface Optimization {
   id?: string | null;
   blockName?: string | null;
   blockType: 'optimization';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Link".
+ */
+export interface Link {
+  type?: ('reference' | 'custom') | null;
+  newTab?: boolean | null;
+  disableIndex?: boolean | null;
+  reference?: {
+    relationTo: 'pages';
+    value: string | Page;
+  } | null;
+  url?: string | null;
+  label?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -179,21 +197,6 @@ export interface Socials {
   id?: string | null;
   blockName?: string | null;
   blockType: 'socials';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Link".
- */
-export interface Link {
-  type?: ('reference' | 'custom') | null;
-  newTab?: boolean | null;
-  disableIndex?: boolean | null;
-  reference?: {
-    relationTo: 'pages';
-    value: string | Page;
-  } | null;
-  url?: string | null;
-  label?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

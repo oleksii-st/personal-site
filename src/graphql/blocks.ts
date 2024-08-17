@@ -1,4 +1,5 @@
 import { LAYOUT } from '@/graphql/layout';
+import { LINK_FIELDS } from '@/graphql/link';
 import { MEDIA_FIELDS } from '@/graphql/media';
 
 export const HERO = `
@@ -34,7 +35,10 @@ export const OPTIMIZATION = `
     ...on Optimization {
         blockType
         heading
+        subheading
+        link ${LINK_FIELDS}
         image ${MEDIA_FIELDS}
+        imageDesktop ${MEDIA_FIELDS}
         description
         ${LAYOUT}
     }

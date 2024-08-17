@@ -1,16 +1,21 @@
 import React from 'react';
 
 import { Media } from '@/components';
+import { CMSLink } from '@/components/CMSLink';
 import { Section } from '@/components/Section';
 import { SectionHeading } from '@/components/SectionHeading';
 import { Optimization as OptimizationType } from '@/payload-types';
+import { cn } from '@/utils/cn';
 import { Block } from '@/utils/types';
 
 export type OptimizationProps = Block<OptimizationType>;
 
 export const Optimization = ({
   image,
+  imageDesktop,
   heading,
+  subheading,
+  link,
   description,
   paddingTop,
   paddingBottom,
@@ -24,18 +29,35 @@ export const Optimization = ({
       <div className="container">
         {heading && <SectionHeading isFirst={isFirst}>{heading}</SectionHeading>}
 
+        {subheading && (
+          <p className={cn('mx-auto text-lg', 'sm:text-xl')}>
+            {subheading}
+            {link?.label && <CMSLink className="text-link" {...link} />}
+          </p>
+        )}
+
         {image && (
           <Media
-            className="w-full max-w-[600px] border-2 rounded-2xl mx-auto my-0"
-            sizes="(min-width: 768px) min(calc(50vw - 64px), 692px), (min-width: 992px) min(calc(50vw - 72px), 692px), calc(100vw - 32px)"
+            className="w-full max-w-[500px] border-2 rounded-2xl mx-auto my-0 sm:hidden"
+            sizes="(min-width: 532px) 500px, calc(100vw - 32px)"
             source={image}
-            width={692}
-            height={692}
+            width={500}
+            height={334}
             loading={loading}
           />
         )}
 
-        {description && <p className="text-center text-xl">{description}</p>}
+        {imageDesktop && (
+          <Media
+            className="w-full max-w-[600px] border-2 rounded-2xl mx-auto my-0 hidden sm:block"
+            source={imageDesktop}
+            width={600}
+            height={480}
+            loading={loading}
+          />
+        )}
+
+        {description && <p className={cn('mx-auto text-lg', 'sm:text-xl')}>{description}</p>}
       </div>
     </Section>
   );

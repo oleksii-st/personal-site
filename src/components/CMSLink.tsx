@@ -83,11 +83,9 @@ export const CMSLink = ({
   }
 
   return (
-    <div>
-      <Link href={href} {...additionalProps} {...rest}>
-        {label}
-        {children}
-      </Link>
-    </div>
+    <Link href={href} {...additionalProps} {...rest}>
+      {label}
+      {children}
+    </Link>
   );
 };
