@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Media } from '@/components';
 import { Section } from '@/components/Section';
+import { SectionHeading } from '@/components/SectionHeading';
 import { Optimization as OptimizationType } from '@/payload-types';
 import { Block } from '@/utils/types';
 
@@ -21,7 +22,7 @@ export const Optimization = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} breakpoints={breakpoints}>
       <div className="container">
-        {heading && <h2>{heading}</h2>}
+        {heading && <SectionHeading isFirst={isFirst}>{heading}</SectionHeading>}
 
         {image && (
           <Media

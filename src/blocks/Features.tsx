@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 
 import { Media } from '@/components';
 import { Section } from '@/components/Section';
+import { SectionHeading } from '@/components/SectionHeading';
 import { ArrowLeft } from '@/icons/ArrowLeft';
 import { ArrowRight } from '@/icons/ArrowRight';
 import { Features as FeaturesType } from '@/payload-types';
@@ -46,7 +47,7 @@ export const Features = ({
   return (
     <Section paddingTop={paddingTop} paddingBottom={paddingBottom} breakpoints={breakpoints}>
       <div className="container">
-        {heading && <h2>{heading}</h2>}
+        {heading && <SectionHeading isFirst={isFirst}>{heading}</SectionHeading>}
 
         <div
           className={cn(

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Media } from '@/components';
 import { Section } from '@/components/Section';
+import { SectionHeading } from '@/components/SectionHeading';
 import { Hero as HeroType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 import { Block } from '@/utils/types';
@@ -44,7 +45,11 @@ export const Hero = ({
 
           {Boolean(heading || subheading) && (
             <div className={cn('text-center', 'sm:text-left sm:w-[calc(50%-16px)]')}>
-              {heading && <h1 className={cn('mb-4', 'sm:md-8 sm:text-left')}>{heading}</h1>}
+              {heading && (
+                <SectionHeading isFirst={isFirst} className={cn('h1 mb-4', 'sm:md-8 sm:text-left')}>
+                  {heading}
+                </SectionHeading>
+              )}
 
               {subheading && (
                 <p className={cn('m-0 text-xl', 'sm:text-2xl', 'md:text-4xl')}>{subheading}</p>

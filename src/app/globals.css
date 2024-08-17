@@ -45,27 +45,27 @@
     @apply text-center
   }
 
-  .prose h1 {
+  .prose h1, .prose .h1 {
     @apply text-4xl sm:text-5xl md:text-7xl
   }
 
-  .prose h2 {
+  .prose h2, .prose .h2 {
     @apply text-4xl sm:text-5xl
   }
 
-  .prose h3 {
+  .prose h3, .prose .h3 {
     @apply text-3xl sm:text-4xl
   }
 
-  .prose h4 {
+  .prose h4, .prose .h4 {
     @apply text-2xl sm:text-3xl
   }
 
-  .prose h5 {
+  .prose h5, .prose .h4 {
     @apply text-xl sm:text-2xl
   }
 
-  .prose h6 {
+  .prose h6, .prose .h6 {
     @apply text-base sm:text-xl
   }
 
