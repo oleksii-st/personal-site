@@ -13,7 +13,7 @@ export const Header = ({ logo, className, ...rest }: HeaderProps) => {
         <div className="flex py-4">
           {logo && (
             <Link
-              href="/public"
+              href="/"
               className={cn(
                 'font-bold text-2xl opacity-100 transition duration-300',
                 'hover:opacity-70',
