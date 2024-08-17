@@ -73,6 +73,10 @@
     @apply text-base sm:text-xl
   }
 
+  .prose .text-left {
+    text-align: left;
+  }
+
   .prose .text-right {
     text-align: right;
   }

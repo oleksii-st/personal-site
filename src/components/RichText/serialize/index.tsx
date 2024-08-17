@@ -35,13 +35,7 @@ export function serializeLexical({ nodes }: Props) {
           : undefined;
 
         if (_node.type === 'text') {
-          let text = (
-            <span
-              dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }}
-              key={index}
-              className={format}
-            />
-          );
+          let text: React.JSX.Element | string = escapeHTML(node.text);
           if (node.format & IS_BOLD) {
             text = <strong key={index}>{text}</strong>;
           }
