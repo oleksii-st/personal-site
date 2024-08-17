@@ -44,6 +44,18 @@ export const OPTIMIZATION = `
     }
 `;
 
+export const SOCIALS = `
+    ...on Socials {
+        blockType
+        heading
+        socials {
+            link ${LINK_FIELDS}
+            icon ${MEDIA_FIELDS}
+        }
+        ${LAYOUT}
+    }
+`;
+
 const reusableContent = `
     {
         layout {
@@ -51,6 +63,7 @@ const reusableContent = `
             ${RICH_TEXT}
             ${FEATURES}
             ${OPTIMIZATION}
+            ${SOCIALS}
         }
     }
 `;

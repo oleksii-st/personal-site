@@ -1,4 +1,11 @@
-import { FEATURES, HERO, OPTIMIZATION, REUSABLE_CONTENT_BLOCK, RICH_TEXT } from '@/graphql/blocks';
+import {
+  FEATURES,
+  HERO,
+  OPTIMIZATION,
+  REUSABLE_CONTENT_BLOCK,
+  RICH_TEXT,
+  SOCIALS,
+} from '@/graphql/blocks';
 import { META_FIELDS } from '@/graphql/meta';
 
 export const PAGES = (page: number) => {
@@ -32,6 +39,7 @@ export const PAGE = `
             ${RICH_TEXT}
             ${FEATURES}
             ${OPTIMIZATION}
+            ${SOCIALS}
             ${REUSABLE_CONTENT_BLOCK}
         }
         meta ${META_FIELDS}
