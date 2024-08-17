@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import React, { HTMLAttributes, ReactNode } from 'react';
+import React, { ComponentProps, ReactNode } from 'react';
 
 import { Link as LinkType, Page } from '@/payload-types';
 
-type CMSLinkProps = HTMLAttributes<HTMLAnchorElement> & LinkType & { children?: ReactNode };
+type CMSLinkProps = Omit<ComponentProps<'a'>, 'type'> & LinkType & { children?: ReactNode };
 
 export type GenerateSlugType = {
   type?: LinkType['type'];

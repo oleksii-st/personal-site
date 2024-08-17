@@ -1,10 +1,10 @@
-import React, { HTMLAttributes } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { CMSLink } from '@/components/CMSLink';
 import { Footer as FooterType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 
-type HeaderProps = HTMLAttributes<HTMLElement> & FooterType;
+type HeaderProps = ComponentProps<'footer'> & FooterType;
 
 export const Footer = ({ columns, copyright, className, ...rest }: HeaderProps) => {
   const copyrighText = copyright?.replaceAll('{{year}}', String(new Date().getFullYear()));
@@ -19,9 +19,10 @@ export const Footer = ({ columns, copyright, className, ...rest }: HeaderProps) 
             >
               {columns?.map((column, index) => (
                 <div key={index} className={cn('flex flex-col text-center gap-4', 'sm:flex-row')}>
-                  {column.navItems?.map(({ link }, index) => (
-                    <CMSLink key={index} className="text-link" {...link} />
-                  ))}
+                  {column.navItems?.map(
+                    ({ link }, index) =>
+                      link && <CMSLink key={index} className="text-link" {...link} />,
+                  )}
                 </div>
               ))}
             </div>

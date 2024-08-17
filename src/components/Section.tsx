@@ -1,6 +1,6 @@
-import { HTMLAttributes, ReactNode, useId } from 'react';
+import { ComponentProps, ReactNode, useId } from 'react';
 
-type SectionProps = HTMLAttributes<HTMLDivElement> & {
+type SectionProps = ComponentProps<'section'> & {
   paddingTop?: number | null;
   paddingBottom?: number | null;
   breakpoints?:

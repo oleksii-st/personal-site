@@ -1,10 +1,10 @@
-import { HTMLAttributes } from 'react';
+import { ComponentProps } from 'react';
 
 import { RichText } from '@/components/RichText';
 import { NotFound } from '@/payload-types';
 import { cn } from '@/utils/cn';
 
-type ErrorMessageProps = HTMLAttributes<HTMLDivElement> & {
+type ErrorMessageProps = ComponentProps<'div'> & {
   heading?: NotFound['heading'];
   description?: NotFound['description'];
 };

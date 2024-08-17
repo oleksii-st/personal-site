@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import React, { HTMLAttributes } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { Header as HeaderType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 
-type HeaderProps = HTMLAttributes<HTMLHeadingElement> & HeaderType;
+type HeaderProps = ComponentProps<'header'> & HeaderType;
 
 export const Header = ({ logo, className, ...rest }: HeaderProps) => {
   return (
