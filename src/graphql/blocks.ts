@@ -56,6 +56,18 @@ export const SOCIALS = `
     }
 `;
 
+export const Contact = `
+    ...on Contact {
+        blockType
+        heading
+        nameLabel
+        emailLabel
+        topicLabel
+        messageLabel
+        ${LAYOUT}
+    }
+`;
+
 const reusableContent = `
     {
         layout {
@@ -64,6 +76,7 @@ const reusableContent = `
             ${FEATURES}
             ${OPTIMIZATION}
             ${SOCIALS}
+            ${Contact}
         }
     }
 `;

@@ -1,3 +1,4 @@
+import { Contact } from '@/blocks/Contact';
 import { Features } from '@/blocks/Features';
 import { Hero } from '@/blocks/Hero';
 import { Optimization } from '@/blocks/Optimization';
@@ -12,7 +13,8 @@ type BlockComponent =
   | typeof RichTextBlock
   | typeof Features
   | typeof Optimization
-  | typeof Socials;
+  | typeof Socials
+  | typeof Contact;
 
 const blockComponents: Record<string, BlockComponent> = {
   hero: Hero,
@@ -20,6 +22,7 @@ const blockComponents: Record<string, BlockComponent> = {
   features: Features,
   optimization: Optimization,
   socials: Socials,
+  contact: Contact,
 };
 
 type BlocksProps = {

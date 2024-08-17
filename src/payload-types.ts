@@ -49,16 +49,7 @@ export interface Page {
   id: string;
   title: string;
   publishedAt?: string | null;
-  layout: (
-    | Hero
-    | Features
-    | Optimization
-    | Socials
-    | Contact
-    | Experience
-    | Richtext
-    | ReusableContentBlock
-  )[];
+  layout: (Hero | Features | Optimization | Socials | Contact | Richtext | ReusableContentBlock)[];
   disableIndex?: boolean | null;
   slug?: string | null;
   meta?: {
@@ -225,34 +216,6 @@ export interface Contact {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Experience".
- */
-export interface Experience {
-  heading?: string | null;
-  jobs?:
-    | {
-        link?: Link;
-        icon: string | Media;
-        id?: string | null;
-      }[]
-    | null;
-  hideBlock?: boolean | null;
-  paddingTop?: number | null;
-  paddingBottom?: number | null;
-  breakpoints?:
-    | {
-        breakpoint?: number | null;
-        paddingTop?: number | null;
-        paddingBottom?: number | null;
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'experience';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Richtext".
  */
 export interface Richtext {
@@ -303,7 +266,7 @@ export interface ReusableContentBlock {
 export interface ReusableContent {
   id: string;
   title: string;
-  layout: (Hero | Features | Optimization | Socials | Contact | Experience | Richtext)[];
+  layout: (Hero | Features | Optimization | Socials | Contact | Richtext)[];
   updatedAt: string;
   createdAt: string;
 }
