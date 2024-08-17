@@ -13,6 +13,13 @@ module.exports = [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
+  {
     plugins: {
       import: require('eslint-plugin-import'),
     },
