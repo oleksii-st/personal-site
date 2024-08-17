@@ -70,6 +70,7 @@ export const Features = ({
             modules={[Navigation, Autoplay]}
             spaceBetween={16}
             slidesPerView={1}
+            grabCursor={true}
             breakpoints={{
               576: {
                 slidesPerView: 2,
