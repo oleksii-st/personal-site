@@ -24,10 +24,10 @@
   }
 
 
-  /**:not(.input):focus-visible {*/
-  /*  outline: 2px solid black;*/
-  /*  outline-offset: 2px;*/
-  /*}*/
+  *:not(.input):focus-visible {
+    outline: 2px solid black;
+    outline-offset: 2px;
+  }
 
   .text-link {
     @apply underline underline-offset-2 hover:no-underline

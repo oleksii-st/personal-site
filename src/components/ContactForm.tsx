@@ -3,6 +3,7 @@
 import { Formik, Form, FormikValues } from 'formik';
 import { ComponentProps } from 'react';
 
+import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
 
 type ContactFormProps = ComponentProps<'div'> & {
@@ -44,7 +45,7 @@ export const ContactForm = ({
     if (!message) {
       errors.message = 'Required';
     } else if (message.length < 3) {
-      errors.name = 'Message must be more than 20 symbols';
+      errors.message = 'Message must be more than 20 symbols';
     }
 
     return errors;
@@ -92,9 +93,14 @@ export const ContactForm = ({
                 />
               </div>
 
-              <button type="submit" disabled={isSubmitting}>
-                Submit
-              </button>
+              <Button
+                className="mt-2"
+                type="submit"
+                isLoading={isSubmitting}
+                disabled={!!Object.keys(errors).length}
+              >
+                Send
+              </Button>
             </Form>
           );
         }}
