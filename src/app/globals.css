@@ -24,10 +24,10 @@
   }
 
 
-  *:focus-visible {
-    outline: 2px solid black;
-    outline-offset: 2px;
-  }
+  /**:not(.input):focus-visible {*/
+  /*  outline: 2px solid black;*/
+  /*  outline-offset: 2px;*/
+  /*}*/
 
   .text-link {
     @apply underline underline-offset-2 hover:no-underline
@@ -91,5 +91,17 @@
 
   .swiper:not(.swiper-initialized).features-swiper .swiper-wrapper .swiper-slide {
     @apply w-full min-[576px]:w-[calc(50%-18px)] sm:w-[calc(33.333%-24px)] min-[1099px]:w-[calc(25%-27px)] min-[1200px]:w-[calc(20%-32px)] min-[1360px]:w-[calc(20%-32px)];
+  }
+
+  .input {
+    @apply block w-full rounded-md resize-none border-0 py-2 px-4 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline focus:outline-blue-700 outline-2 sm:text-sm sm:leading-6
+  }
+
+  .input.error {
+    @apply outline outline-red-600 outline-2 focus:outline-blue-700;
+  }
+
+  textarea.input {
+    @apply h-[150px]
   }
 }
