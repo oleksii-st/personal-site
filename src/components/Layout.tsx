@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { Toaster } from '@/components/ui/toaster';
 import { fetchGlobals } from '@/graphql';
 import { cn } from '@/utils/cn';
 
@@ -40,6 +41,7 @@ export const Layout = async ({ children }: { children: ReactNode }) => {
         {children}
       </main>
       <Footer {...footer} />
+      <Toaster />
     </div>
   );
 };

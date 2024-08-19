@@ -5,6 +5,7 @@ import { ComponentProps } from 'react';
 
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
+import { useToast } from '@/components/ui/use-toast';
 
 type ContactFormProps = ComponentProps<'div'> & {
   nameLabel?: string;
@@ -19,6 +20,8 @@ export const ContactForm = ({
   topicLabel,
   messageLabel,
 }: ContactFormProps) => {
+  const { toast } = useToast();
+
   const validate = (values: FormikValues) => {
     const errors: Record<string, string> = {};
 
@@ -59,6 +62,11 @@ export const ContactForm = ({
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
+            toast({
+              title: 'Submission error',
+              description: 'Friday, February 10, 2023 at 5:57 PM',
+              variant: 'destructive',
+            });
             setSubmitting(false);
           }, 400);
         }}
