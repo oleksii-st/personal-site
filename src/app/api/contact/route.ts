@@ -3,16 +3,16 @@ import { Resend } from 'resend';
 
 import { EmailContactTemplate } from '@/components/EmailContactTemplate';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY as string);
 const authorEmail = process.env.EMAIL as string;
 
-const serverError = `Temporary server error. Please try again letter or write directly to ${authorEmail}`;
-
 export async function POST(request: NextRequest) {
-  try {
-    const { email, subject, name, message } = await request.json();
+  const CONTACT_SERVER_ERROR = `Temporary server error. Please try again letter or write directly to ${authorEmail}`;
 
-    const emptyFields = Object.entries({ email, subject, name, message })
+  try {
+    const { email, topic, name, message } = await request.json();
+
+    const emptyFields = Object.entries({ email, topic, name, message })
       .filter((entry) => !entry[1])
       .map((entry) => entry[0]);
 
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await resend.emails.send({
       from: 'Contact form <okesksii-s@resend.dev>',
       to: [authorEmail],
-      subject,
+      subject: topic,
       react: EmailContactTemplate({ name, email, message }),
     });
 
@@ -37,6 +37,6 @@ export async function POST(request: NextRequest) {
     return Response.json(data);
   } catch (error) {
     console.log('error: ', error);
-    return Response.json({ message: serverError }, { status: 500 });
+    return Response.json({ message: CONTACT_SERVER_ERROR }, { status: 500 });
   }
 }

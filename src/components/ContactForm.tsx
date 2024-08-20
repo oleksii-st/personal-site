@@ -3,9 +3,10 @@
 import { Formik, Form, FormikValues } from 'formik';
 import { ComponentProps, useState } from 'react';
 
+import { contact } from '@/api';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
-// import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/components/ui/use-toast';
 import { Checkmark } from '@/icons/Checkmark';
 
 type ContactFormProps = ComponentProps<'div'> & {
@@ -21,7 +22,7 @@ export const ContactForm = ({
   topicLabel,
   messageLabel,
 }: ContactFormProps) => {
-  // const { toast } = useToast();
+  const { toast } = useToast();
   const [submitted, setSubmitted] = useState(false);
 
   const validate = (values: FormikValues) => {
@@ -72,17 +73,18 @@ export const ContactForm = ({
         <Formik
           initialValues={{ name: '', email: '', topic: '', message: '' }}
           validate={validate}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              // toast({
-              //   title: 'Submission error',
-              //   description: 'Friday, February 10, 2023 at 5:57 PM',
-              //   variant: 'destructive',
-              // });
+          onSubmit={async (values, { setSubmitting }) => {
+            const { message, id } = await contact(values);
+            if (message) {
+              toast({
+                title: 'Submission error',
+                description: message,
+                variant: 'destructive',
+              });
+            } else if (id) {
               setSubmitted(true);
-              setSubmitting(false);
-            }, 400);
+            }
+            setSubmitting(false);
           }}
         >
           {({ isSubmitting, errors, touched }) => {
