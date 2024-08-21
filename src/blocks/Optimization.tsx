@@ -49,7 +49,7 @@ export const Optimization = ({
 
         {imageDesktop && (
           <Media
-            className="w-full max-w-[600px] border-2 rounded-2xl mx-auto my-0 hidden sm:block"
+            className="w-full max-w-[600px] border-2 rounded-2xl mx-auto hidden sm:block"
             source={imageDesktop}
             width={600}
             height={480}

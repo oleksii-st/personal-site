@@ -62,7 +62,7 @@ export const Features = ({
             className={cn('opacity-100 transition-opacity', 'hover:opacity-50')}
             onClick={handlePrev}
           >
-            <ArrowLeft />
+            <ArrowLeft aria-label="Go to prevoius slide" />
           </button>
 
           <Swiper
@@ -123,7 +123,7 @@ export const Features = ({
             className={cn('opacity-100 transition-opacity', 'hover:opacity-50')}
             onClick={handleNext}
           >
-            <ArrowRight />
+            <ArrowRight aria-label="Go to next slide" />
           </button>
         </div>
       </div>
