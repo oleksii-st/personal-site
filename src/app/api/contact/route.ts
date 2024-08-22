@@ -2,12 +2,13 @@ import { NextRequest } from 'next/server';
 import { Resend } from 'resend';
 
 import { EmailContactTemplate } from '@/components/EmailContactTemplate';
+import { TOO_MANY_REQUEST_MESSAGE } from '@/utils/constants';
 import { checkRateLimit } from '@/utils/rateLimitUtils';
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY as string);
 const authorEmail = process.env.EMAIL as string;
 const RATE_LIMIT = 5;
-const RATE_LIMIT_WINDOW_MS = 60 * 5000;
+const RATE_LIMIT_WINDOW_MS = 60 * 5 * 1000;
 
 export async function POST(request: NextRequest) {
   const CONTACT_SERVER_ERROR = `Temporary server error. Please try again letter or write directly to ${authorEmail}`;
@@ -15,7 +16,7 @@ export async function POST(request: NextRequest) {
   const ip = request.ip;
 
   if (ip && !checkRateLimit('contactRoute', ip, RATE_LIMIT, RATE_LIMIT_WINDOW_MS)) {
-    return Response.json({ message: `Too many requests! Try again later.` }, { status: 429 });
+    return Response.json({ message: TOO_MANY_REQUEST_MESSAGE }, { status: 429 });
   }
 
   try {

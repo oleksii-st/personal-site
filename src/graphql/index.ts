@@ -166,3 +166,32 @@ export const fetchRedirects = async (next?: { revalidate: number }): Promise<Red
 
   return data?.Redirects?.docs || [];
 };
+
+export const fetchPreview = async (
+  url: string,
+  next?: { revalidate: number },
+): Promise<Page | { message: string } | null> => {
+  next = next || defaultNext;
+  try {
+    const data = await fetch(`/api/preview`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      next,
+      body: JSON.stringify({
+        url: url,
+      }),
+    }).then((res) => res.json());
+
+    if (data.errors) {
+      console.error(JSON.stringify(data.errors));
+      throw new Error();
+    }
+
+    return data;
+  } catch (e: unknown) {
+    console.log('e: ', e);
+    return null;
+  }
+};
