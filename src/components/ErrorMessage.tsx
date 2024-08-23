@@ -4,7 +4,7 @@ import { RichText } from '@/components/RichText';
 import { NotFound } from '@/payload-types';
 import { cn } from '@/utils/cn';
 
-type ErrorMessageProps = ComponentProps<'div'> & {
+export type ErrorMessageProps = ComponentProps<'div'> & {
   heading?: NotFound['heading'];
   description?: NotFound['description'];
 };

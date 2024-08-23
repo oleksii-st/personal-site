@@ -631,6 +631,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@payloadcms/live-preview-react@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@payloadcms/live-preview-react@npm:0.2.0"
+  dependencies:
+    "@payloadcms/live-preview": "npm:^0.x"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 10c0/08b0ce4e9b67e3fdb6338ea1f06ab13169b16709207a20152b6f048760d484a4a306e28a64130bb2482d53e191c879d211ae1b3e848da9717ae076766887f221
+  languageName: node
+  linkType: hard
+
+"@payloadcms/live-preview@npm:^0.x":
+  version: 0.2.2
+  resolution: "@payloadcms/live-preview@npm:0.2.2"
+  checksum: 10c0/f0750eb4aef2a37ef1ab13b77a0fa81a6ef4046f9eac90908027d673c9f304ebd01ece0cf2b3fd44be49412c1d4c7f608abd814d8f06d3e27b350e3a5f6f260f
+  languageName: node
+  linkType: hard
+
 "@payloadcms/richtext-lexical@npm:^0.11.2":
   version: 0.11.2
   resolution: "@payloadcms/richtext-lexical@npm:0.11.2"
@@ -4401,6 +4419,7 @@ __metadata:
     "@eslint/js": "npm:^9.8.0"
     "@lexical/list": "npm:^0.17.0"
     "@lexical/rich-text": "npm:^0.17.0"
+    "@payloadcms/live-preview-react": "npm:^0.2.0"
     "@payloadcms/richtext-lexical": "npm:^0.11.2"
     "@radix-ui/react-toast": "npm:^1.2.1"
     "@tailwindcss/typography": "npm:^0.5.13"

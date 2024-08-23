@@ -167,10 +167,10 @@ export const fetchRedirects = async (next?: { revalidate: number }): Promise<Red
   return data?.Redirects?.docs || [];
 };
 
-export const fetchPreview = async (
-  url: string,
-  next?: { revalidate: number },
-): Promise<Page | { message: string } | null> => {
+export type ErrorMessage = { revalidate: number };
+export type PreviewContent = Page | ErrorMessage | Header | Footer | NotFound | null;
+
+export const fetchPreview = async (url: string, next?: ErrorMessage): Promise<PreviewContent> => {
   next = next || defaultNext;
   try {
     const data = await fetch(`/api/preview`, {
