@@ -18,6 +18,7 @@ export const FEATURES = `
         heading
         features {
             icon ${MEDIA_FIELDS}
+            description
         }
         ${LAYOUT}
     }
@@ -56,7 +57,7 @@ export const SOCIALS = `
     }
 `;
 
-export const Contact = `
+export const CONTACT = `
     ...on Contact {
         blockType
         heading
@@ -76,7 +77,7 @@ const reusableContent = `
             ${FEATURES}
             ${OPTIMIZATION}
             ${SOCIALS}
-            ${Contact}
+            ${CONTACT}
         }
     }
 `;

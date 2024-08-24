@@ -102,6 +102,7 @@ export interface Features {
   features?:
     | {
         icon: string | Media;
+        description: string;
         id?: string | null;
       }[]
     | null;

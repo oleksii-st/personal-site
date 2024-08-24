@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 
@@ -28,6 +28,7 @@ export const Features = ({
 }: FeaturesProps) => {
   const loading = isFirst ? 'eager' : 'lazy';
 
+  const [activeSlide, setActiveSlide] = useState(0);
   const sliderRef = useRef<SwiperRef | null>(null);
 
   if (!features?.length) {
@@ -71,6 +72,7 @@ export const Features = ({
             spaceBetween={16}
             slidesPerView={1}
             grabCursor={true}
+            onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
             breakpoints={{
               576: {
                 slidesPerView: 2,
@@ -94,27 +96,26 @@ export const Features = ({
               },
             }}
             ref={sliderRef}
-            autoplay={{
-              pauseOnMouseEnter: true,
-              disableOnInteraction: true,
-            }}
             loop
           >
             {features.map(({ icon }, index) => (
-              <SwiperSlide className="!h-auto" key={index}>
-                <div
-                  className={cn(
-                    'h-full aspect-square flex justify-center items-center border-2 rounded-2xl',
-                  )}
-                >
-                  <Media
-                    className="aspect-square object-contain w-[70%] max-w-[130px] m-4"
-                    source={icon}
-                    width={130}
-                    height={130}
-                    loading={loading}
-                  />
-                </div>
+              <SwiperSlide className={cn('!h-auto')} key={index}>
+                {({ isActive }) => (
+                  <div
+                    className={cn(
+                      'h-full aspect-square flex justify-center items-center border-2 rounded-2xl',
+                      { 'xs:border-blue-700  xs:border-4': isActive },
+                    )}
+                  >
+                    <Media
+                      className="aspect-square object-contain w-[70%] max-w-[130px] m-4"
+                      source={icon}
+                      width={130}
+                      height={130}
+                      loading={loading}
+                    />
+                  </div>
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
@@ -126,6 +127,15 @@ export const Features = ({
             <ArrowRight aria-label="Go to next slide" />
           </button>
         </div>
+
+        {features.map(({ description }, index) => (
+          <div
+            key={index}
+            className={cn('mx-0 mt-8 text-lg', 'xs:mx-[66px]', { hidden: activeSlide !== index })}
+          >
+            {description}
+          </div>
+        ))}
       </div>
     </Section>
   );

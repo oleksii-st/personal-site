@@ -1,5 +1,5 @@
 import {
-  Contact,
+  CONTACT,
   FEATURES,
   HERO,
   OPTIMIZATION,
@@ -41,7 +41,7 @@ export const PAGE = `
             ${FEATURES}
             ${OPTIMIZATION}
             ${SOCIALS}
-            ${Contact}
+            ${CONTACT}
             ${REUSABLE_CONTENT_BLOCK}
         }
         meta ${META_FIELDS}

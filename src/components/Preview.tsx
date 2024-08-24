@@ -32,7 +32,7 @@ export const Preview = ({ url }: PreviewProps) => {
   useEffect(() => {
     const fetchData = async () => {
       if (!url) return;
-      const data = await fetchPreview(url);
+      const data = await fetchPreview(url, { revalidate: 0 });
       if (!data || 'message' in data) {
         setError(data?.message as string);
       } else {
