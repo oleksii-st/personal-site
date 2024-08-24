@@ -29,16 +29,9 @@ export const Optimization = ({
       <div className="container">
         {heading && <SectionHeading isFirst={isFirst}>{heading}</SectionHeading>}
 
-        {subheading && (
-          <p className={cn('mx-auto text-lg', 'sm:text-xl')}>
-            {subheading}
-            {link?.label && <CMSLink className="text-link" {...link} />}
-          </p>
-        )}
-
         {image && (
           <Media
-            className="w-full max-w-[500px] border-2 rounded-2xl mx-auto my-0 sm:hidden"
+            className="w-full max-w-[500px] border-2 rounded-2xl mx-auto mt-0 mb-6 sm:hidden"
             sizes="(min-width: 532px) 500px, calc(100vw - 32px)"
             source={image}
             width={500}
@@ -57,7 +50,14 @@ export const Optimization = ({
           />
         )}
 
-        {description && <p className={cn('mx-auto text-lg', 'sm:text-xl')}>{description}</p>}
+        {subheading && (
+          <p className={cn('mx-auto mb-2 text-lg text-center', 'sm:text-xl')}>
+            {subheading}
+            {link?.label && <CMSLink className="text-link" {...link} />}
+          </p>
+        )}
+
+        {description && <p className={cn('mx-auto mb-0 text-base text-center')}>{description}</p>}
       </div>
     </Section>
   );

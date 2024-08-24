@@ -127,9 +127,9 @@ export interface Features {
  */
 export interface Optimization {
   heading?: string | null;
+  image: string | Media;
   subheading?: string | null;
   link?: Link;
-  image: string | Media;
   imageDesktop: string | Media;
   description?: string | null;
   hideBlock?: boolean | null;
