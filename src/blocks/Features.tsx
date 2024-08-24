@@ -60,7 +60,7 @@ export const Features = ({
           )}
         >
           <button
-            className={cn('opacity-100 transition-opacity', 'hover:opacity-50')}
+            className={cn('opacity-100 transition-opacity text-[--text-color]', 'hover:opacity-50')}
             onClick={handlePrev}
           >
             <ArrowLeft aria-label="Go to prevoius slide" />
@@ -103,7 +103,7 @@ export const Features = ({
                 {({ isActive }) => (
                   <div
                     className={cn(
-                      'h-full aspect-square flex justify-center items-center border-2 rounded-2xl',
+                      'h-full aspect-square flex justify-center items-center bg-white border-2 rounded-2xl',
                       { 'xs:border-blue-700  xs:border-4': isActive },
                     )}
                   >
@@ -121,7 +121,7 @@ export const Features = ({
           </Swiper>
 
           <button
-            className={cn('opacity-100 transition-opacity', 'hover:opacity-50')}
+            className={cn('opacity-100 transition-opacity text-[--text-color]', 'hover:opacity-50')}
             onClick={handleNext}
           >
             <ArrowRight aria-label="Go to next slide" />

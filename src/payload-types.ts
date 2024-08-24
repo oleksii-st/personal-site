@@ -407,9 +407,12 @@ export interface Settings {
   container: number;
   horizontalPaddings: number;
   horizontalPaddingsDesktop: number;
-  backgroundColor: string;
-  textColor: string;
-  headingsColor: string;
+  backgroundColorLight: string;
+  textColorLight: string;
+  headingsColorLight: string;
+  backgroundColorDark: string;
+  textColorDark: string;
+  headingsColorDark: string;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

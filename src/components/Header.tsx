@@ -15,7 +15,7 @@ export const Header = ({ logo, className, ...rest }: HeaderProps) => {
             <Link
               href="/"
               className={cn(
-                'font-bold text-2xl opacity-100 transition duration-300',
+                'font-bold text-2xl opacity-100 transition duration-300 text-[var(--headings-color)]',
                 'hover:opacity-70',
               )}
             >

@@ -17,9 +17,12 @@ export const GLOBALS = `
         container
         horizontalPaddings
         horizontalPaddingsDesktop
-        backgroundColor
-        textColor
-        headingsColor
+        backgroundColorLight
+        textColorLight
+        headingsColorLight
+        backgroundColorDark
+        textColorDark
+        headingsColorDark
     }
   }
 `;

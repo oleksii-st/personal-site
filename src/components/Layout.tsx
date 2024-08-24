@@ -14,23 +14,50 @@ export const Layout = async ({ children }: { children: ReactNode }) => {
       container,
       horizontalPaddings,
       horizontalPaddingsDesktop,
-      backgroundColor,
-      textColor,
-      headingsColor,
+      backgroundColorLight,
+      textColorLight,
+      headingsColorLight,
+      backgroundColorDark,
+      textColorDark,
+      headingsColorDark,
     },
   } = await fetchGlobals();
 
-  const styles = {
-    '--container-width': `${container}px`,
-    '--container-padding': `${horizontalPaddings}px`,
-    '--container-padding-desktop': `${horizontalPaddingsDesktop}px`,
-    '--headings-color': headingsColor,
-    backgroundColor,
-    color: textColor,
-  };
+  const styles = `
+  html {
+  --container-width: ${container}px;
+    --container-padding: ${horizontalPaddings}px;
+    --container-padding-desktop: ${horizontalPaddingsDesktop}px;
+    
+      @media (prefers-color-scheme: light) {
+        --headings-color: ${headingsColorLight};
+        --background-color: ${backgroundColorLight};
+        --text-color: ${textColorLight};
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        --headings-color: ${headingsColorDark};
+        --background-color: ${backgroundColorDark};
+        --text-color: ${textColorDark};
+      }
+  }
+  
+  .light {
+      --headings-color: ${headingsColorLight};
+      --background-color: ${backgroundColorLight};
+      --text-color: ${textColorLight};
+  }
+  
+  .dark {
+      --headings-color: ${headingsColorDark};
+      --background-color: ${backgroundColorDark};
+      --text-color: ${textColorDark};
+  }
+  `;
 
   return (
-    <div className="flex flex-col min-h-[100vh]" style={styles}>
+    <div className="flex flex-col min-h-[100vh]">
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
       <Header {...header} />
       <main
         className={cn(

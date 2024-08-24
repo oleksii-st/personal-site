@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
+  body {
+    max-width: 100%;
+    background: var(--background-color);
+    color: var(--text-color);
+  }
+
   .container {
     width: 100%;
     max-width: calc(var(--container-width, 100%) + var(--container-padding-desktop, 32px) * 2);
@@ -14,18 +20,13 @@
     }
   }
 
-
-  body {
-    max-width: 100%;
-  }
-
   h1, h2, h3, h4, h5, h6 {
-    color: var(--headings-color, #000000);
+    color: var(--headings-color);
   }
 
 
   *:not(.input):focus-visible {
-    outline: 2px solid black;
+    outline: 2px solid var(--text-color);
     outline-offset: 2px;
   }
 
@@ -43,6 +44,8 @@
 
   .prose {
     color: inherit;
+    --tw-prose-headings: var(--headings-color);
+    --tw-prose-links: var(--text-color);
   }
 
   .prose p {
