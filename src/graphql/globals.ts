@@ -16,9 +16,13 @@ export const GLOBALS = `
     Settings {
         container
         horizontalPaddings
-        backgroundColor
-        textColor
-        headingsColor
+        horizontalPaddingsDesktop
+        backgroundColorLight
+        textColorLight
+        headingsColorLight
+        backgroundColorDark
+        textColorDark
+        headingsColorDark
     }
   }
 `;

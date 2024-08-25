@@ -1,14 +1,28 @@
+import { Contact } from '@/blocks/Contact';
+import { Features } from '@/blocks/Features';
 import { Hero } from '@/blocks/Hero';
+import { Optimization } from '@/blocks/Optimization';
 import { RichTextBlock } from '@/blocks/RichText';
+import { Socials } from '@/blocks/Socials';
 import { Page, ReusableContent } from '@/payload-types';
 
 type LayoutBlocks = Page['layout'];
 
-type BlockComponent = typeof Hero | typeof RichTextBlock;
+type BlockComponent =
+  | typeof Hero
+  | typeof RichTextBlock
+  | typeof Features
+  | typeof Optimization
+  | typeof Socials
+  | typeof Contact;
 
 const blockComponents: Record<string, BlockComponent> = {
   hero: Hero,
   richText: RichTextBlock,
+  features: Features,
+  optimization: Optimization,
+  socials: Socials,
+  contact: Contact,
 };
 
 type BlocksProps = {

@@ -1,12 +1,22 @@
 import { MetadataRoute } from 'next';
 
+import { BASE_URL, IS_PRODUCTION } from '@/utils/constants';
+
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.SITEMAP_URL as string;
+  if (IS_PRODUCTION) {
+    return {
+      rules: {
+        userAgent: '*',
+        allow: '/',
+      },
+      sitemap: `${BASE_URL}/sitemap.xml`,
+    };
+  }
+
   return {
     rules: {
       userAgent: '*',
-      allow: '/',
+      disallow: '/',
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

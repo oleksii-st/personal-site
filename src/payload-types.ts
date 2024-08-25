@@ -49,16 +49,7 @@ export interface Page {
   id: string;
   title: string;
   publishedAt?: string | null;
-  layout: (
-    | Hero
-    | Features
-    | Optimization
-    | Socials
-    | Contact
-    | Experience
-    | Richtext
-    | ReusableContentBlock
-  )[];
+  layout: (Hero | Features | Optimization | Socials | Contact | Richtext | ReusableContentBlock)[];
   disableIndex?: boolean | null;
   slug?: string | null;
   meta?: {
@@ -111,6 +102,7 @@ export interface Features {
   features?:
     | {
         icon: string | Media;
+        description: string;
         id?: string | null;
       }[]
     | null;
@@ -136,6 +128,9 @@ export interface Features {
 export interface Optimization {
   heading?: string | null;
   image: string | Media;
+  subheading?: string | null;
+  link?: Link;
+  imageDesktop: string | Media;
   description?: string | null;
   hideBlock?: boolean | null;
   paddingTop?: number | null;
@@ -151,6 +146,21 @@ export interface Optimization {
   id?: string | null;
   blockName?: string | null;
   blockType: 'optimization';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Link".
+ */
+export interface Link {
+  type?: ('reference' | 'custom') | null;
+  newTab?: boolean | null;
+  disableIndex?: boolean | null;
+  reference?: {
+    relationTo: 'pages';
+    value: string | Page;
+  } | null;
+  url?: string | null;
+  label?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -182,21 +192,6 @@ export interface Socials {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Link".
- */
-export interface Link {
-  type?: ('reference' | 'custom') | null;
-  newTab?: boolean | null;
-  disableIndex?: boolean | null;
-  reference?: {
-    relationTo: 'pages';
-    value: string | Page;
-  } | null;
-  url?: string | null;
-  label?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Contact".
  */
 export interface Contact {
@@ -219,34 +214,6 @@ export interface Contact {
   id?: string | null;
   blockName?: string | null;
   blockType: 'contact';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Experience".
- */
-export interface Experience {
-  heading?: string | null;
-  jobs?:
-    | {
-        link?: Link;
-        icon: string | Media;
-        id?: string | null;
-      }[]
-    | null;
-  hideBlock?: boolean | null;
-  paddingTop?: number | null;
-  paddingBottom?: number | null;
-  breakpoints?:
-    | {
-        breakpoint?: number | null;
-        paddingTop?: number | null;
-        paddingBottom?: number | null;
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'experience';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -300,7 +267,7 @@ export interface ReusableContentBlock {
 export interface ReusableContent {
   id: string;
   title: string;
-  layout: (Hero | Features | Optimization | Socials | Contact | Experience | Richtext)[];
+  layout: (Hero | Features | Optimization | Socials | Contact | Richtext)[];
   updatedAt: string;
   createdAt: string;
 }
@@ -439,9 +406,13 @@ export interface Settings {
   id: string;
   container: number;
   horizontalPaddings: number;
-  backgroundColor: string;
-  textColor: string;
-  headingsColor: string;
+  horizontalPaddingsDesktop: number;
+  backgroundColorLight: string;
+  textColorLight: string;
+  headingsColorLight: string;
+  backgroundColorDark: string;
+  textColorDark: string;
+  headingsColorDark: string;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

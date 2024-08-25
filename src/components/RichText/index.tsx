@@ -1,12 +1,12 @@
 import type { SerializedLexicalNode } from 'lexical';
-import React, { HTMLAttributes } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { serializeLexical } from './serialize';
 
 import { cn } from '@/utils/cn';
 import { RichTextType } from '@/utils/types';
 
-type RichTextProps = Omit<HTMLAttributes<HTMLDivElement>, 'content'> & {
+type RichTextProps = Omit<ComponentProps<'div'>, 'content'> & {
   content?: RichTextType;
 };
 

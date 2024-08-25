@@ -16,11 +16,11 @@ import {
   IS_UNDERLINE,
 } from './nodeFormat';
 
-import { Media } from '@/components/Media';
 import { CodeBlock } from '@/components/RichText/CodeBlock';
 import { Media as MediaType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 import { toKebabCase } from '@/utils/toKebabCase';
+import { Media } from '@/components';
 
 interface Props {
   nodes: SerializedLexicalNode[];
@@ -36,13 +36,7 @@ export function serializeLexical({ nodes }: Props) {
           : undefined;
 
         if (_node.type === 'text') {
-          let text = (
-            <span
-              dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }}
-              key={index}
-              className={format}
-            />
-          );
+          let text: React.JSX.Element | string = escapeHTML(node.text);
           if (node.format & IS_BOLD) {
             text = <strong key={index}>{text}</strong>;
           }
@@ -198,7 +192,7 @@ export function serializeLexical({ nodes }: Props) {
               <Media
                 source={source}
                 className="mx-auto"
-                sizes="(max-width: 1440px) calc(100vw - 32px), 1408px"
+                sizes="(min-width: 1440px) 1408px, (min-width: 768px) calc(100vw - 64px), calc(100vw - 32px)"
               />
             );
           }

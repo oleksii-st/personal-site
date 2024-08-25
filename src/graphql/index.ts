@@ -2,9 +2,10 @@ import { GLOBALS, NOT_FOUND } from '@/graphql/globals';
 import { PAGE, PAGES } from '@/graphql/pages';
 import { REDIRECTS } from '@/graphql/redirects';
 import { Footer, Header, NotFound, Page, Redirect, Settings } from '@/payload-types';
+import { IS_DEVELOPMENT } from '@/utils/constants';
 
 const defaultNext = {
-  revalidate: 0,
+  revalidate: IS_DEVELOPMENT ? 0 : 600,
 };
 
 export const fetchGlobals = async (next?: {
@@ -164,4 +165,33 @@ export const fetchRedirects = async (next?: { revalidate: number }): Promise<Red
   }).then((res) => res.json());
 
   return data?.Redirects?.docs || [];
+};
+
+export type ErrorMessage = { revalidate: number };
+export type PreviewContent = Page | ErrorMessage | Header | Footer | NotFound | null;
+
+export const fetchPreview = async (url: string, next?: ErrorMessage): Promise<PreviewContent> => {
+  next = next || defaultNext;
+  try {
+    const data = await fetch(`/api/preview`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      next,
+      body: JSON.stringify({
+        url: url,
+      }),
+    }).then((res) => res.json());
+
+    if (data.errors) {
+      console.error(JSON.stringify(data.errors));
+      throw new Error();
+    }
+
+    return data;
+  } catch (e: unknown) {
+    console.log('e: ', e);
+    return null;
+  }
 };
