@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Media } from '@/components';
-import { CMSLink } from '@/components/CMSLink';
 import { Section } from '@/components/Section';
 import { SectionHeading } from '@/components/SectionHeading';
+import { CMSLink } from '@/components/ui/CMSLink';
 import { Socials as SocialsType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 import { Block } from '@/utils/types';

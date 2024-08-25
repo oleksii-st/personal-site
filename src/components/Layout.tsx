@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/ui/Toaster';
 import { fetchGlobals } from '@/graphql';
 import { cn } from '@/utils/cn';
 

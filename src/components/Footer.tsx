@@ -1,6 +1,6 @@
 import React, { ComponentProps } from 'react';
 
-import { CMSLink } from '@/components/CMSLink';
+import { CMSLink } from '@/components/ui/CMSLink';
 import { Footer as FooterType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 

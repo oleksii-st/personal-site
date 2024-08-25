@@ -4,9 +4,9 @@ import { Formik, Form, FormikValues } from 'formik';
 import { ComponentProps, useState } from 'react';
 
 import { contact } from '@/api';
-import { Button } from '@/components/Button';
-import { Input } from '@/components/Input';
-import { useToast } from '@/components/ui/use-toast';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { useToast } from '@/components/ui/useToast';
 import { Checkmark } from '@/icons/Checkmark';
 
 type ContactFormProps = ComponentProps<'div'> & {
