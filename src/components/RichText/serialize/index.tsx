@@ -16,11 +16,11 @@ import {
   IS_UNDERLINE,
 } from './nodeFormat';
 
+import { Media } from '@/components';
 import { CodeBlock } from '@/components/RichText/CodeBlock';
 import { Media as MediaType } from '@/payload-types';
 import { cn } from '@/utils/cn';
 import { toKebabCase } from '@/utils/toKebabCase';
-import { Media } from '@/components';
 
 interface Props {
   nodes: SerializedLexicalNode[];

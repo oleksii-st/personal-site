@@ -1,5 +1,41 @@
 export const BASE_URL = process.env.SITEMAP_URL as string;
 export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 export const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
-
 export const TOO_MANY_REQUEST_MESSAGE = 'Too many requests! Try again later.';
+
+export const CODE_STYLES_BLOCK = {
+  lineNumberColor: 'var(--code-line-number-color)',
+  lineNumberBgColor: 'var(--code-line-number-bg-color)',
+  backgroundColor: 'var(--code-background-color)',
+  textColor: 'var(--code-text-color)',
+  substringColor: 'var(--code-substring-color)',
+  keywordColor: 'var(--code-keyword-color)',
+  attributeColor: 'var(--code-attribute-color)',
+  selectorAttributeColor: 'var(--code-selector-attribute-color)',
+  docTagColor: 'var(--code-doc-tag-color)',
+  nameColor: 'var(--code-name-color)',
+  builtInColor: 'var(--code-built-in-color)',
+  literalColor: 'var(--code-literal-color)',
+  bulletColor: 'var(--code-bullet-color)',
+  codeColor: 'var(--code-code-color)',
+  additionColor: 'var(--code-addition-color)',
+  regexpColor: 'var(--code-regexp-color)',
+  symbolColor: 'var(--code-symbol-color)',
+  variableColor: 'var(--code-variable-color)',
+  templateVariableColor: 'var(--code-template-variable-color)',
+  linkColor: 'var(--code-link-color)',
+  selectorClassColor: 'var(--code-selector-class-color)',
+  typeColor: 'var(--code-type-color)',
+  stringColor: 'var(--code-string-color)',
+  selectorIdColor: 'var(--code-selector-id-color)',
+  quoteColor: 'var(--code-quote-color)',
+  templateTagColor: 'var(--code-template-tag-color)',
+  deletionColor: 'var(--code-deletion-color)',
+  titleColor: 'var(--code-title-color)',
+  sectionColor: 'var(--code-section-color)',
+  commentColor: 'var(--code-comment-color)',
+  metaKeywordColor: 'var(--code-meta-keyword-color)',
+  metaColor: 'var(--code-meta-color)',
+  functionColor: 'var(--code-function-color)',
+  numberColor: 'var(--code-number-color)',
+};
