@@ -46,6 +46,10 @@
     color: inherit;
     --tw-prose-headings: var(--headings-color);
     --tw-prose-links: var(--text-color);
+    --tw-prose-bullets: var(--text-color);
+    --tw-prose-counters: var(--text-color);
+    --tw-prose-quotes: var(--text-color);
+    --tw-prose-bold: var(--text-color);
   }
 
   .prose p {
