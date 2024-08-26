@@ -12,7 +12,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en">
+    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href={`${process.env.NEXT_PUBLIC_CMS_URL}/media/favicon.ico`} />
       </head>

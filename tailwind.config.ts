@@ -8,6 +8,10 @@ const config: Config = {
     './src/blocks/**/*.{js,ts,jsx,tsx}',
     './src/app/**/*.{js,ts,jsx,tsx}',
   ],
+  darkMode: [
+    'variant',
+    ['@media (prefers-color-scheme: dark) { &:not(.light *) }', '&:is(.dark *)'],
+  ],
   theme: {
     screens: {
       xs: '576px',
@@ -21,6 +25,10 @@ const config: Config = {
       },
       boxShadow: {
         '3xl': 'rgba(99, 99, 99, 0.2) 0px 0 8px 0px',
+      },
+      colors: {
+        mild: 'var(--color-mild)',
+        text: 'var(--text-color)',
       },
       typography: () => ({
         basic: {

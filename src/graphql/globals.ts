@@ -4,6 +4,7 @@ export const GLOBALS = `
   query {
     Header {
       logo
+      showThemeSelect
     }
     Footer {
       columns {

@@ -41,6 +41,7 @@
         --code-number-color: #333333;
         --code-inline-color: var(--text-color);
         --code-inline-bg-color: #f4f5f7;
+        --color-mild: rgb(244,244,245);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -80,6 +81,7 @@
         --code-number-color: #cc6666;
         --code-inline-color: #E95A00;
         --code-inline-bg-color: #2d2d2d;
+        --color-mild: #313030;
     }
   }
 
@@ -126,6 +128,7 @@
     --code-number-color: #333333;
     --code-inline-color: var(--text-color);
     --code-inline-bg-color: #f4f5f7;
+    --color-mild: rgb(244,244,245);
   }
 
   .dark {
@@ -165,6 +168,7 @@
     --code-number-color: #cc6666;
     --code-inline-color: #E95A00;
     --code-inline-bg-color: #2d2d2d;
+    --color-mild: #313030;
   }
 
   .container {
@@ -300,4 +304,16 @@
   textarea.input {
     @apply h-[150px]
   }
+
+  .selected-theme {
+      left: 68px;
+  }
+
+  .light .selected-theme {
+      left: 4px;
+  }
+
+  .dark .selected-theme {
+     left: 36px;
+   }
 }
