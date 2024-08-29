@@ -688,9 +688,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/richtext-lexical@npm:^0.11.2":
-  version: 0.11.2
-  resolution: "@payloadcms/richtext-lexical@npm:0.11.2"
+"@payloadcms/richtext-lexical@npm:^0.11.3":
+  version: 0.11.3
+  resolution: "@payloadcms/richtext-lexical@npm:0.11.3"
   dependencies:
     "@faceless-ui/modal": "npm:2.0.1"
     "@lexical/headless": "npm:0.13.1"
@@ -716,7 +716,7 @@ __metadata:
     payload: ^2.4.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/0adbf81d2c445fe2a9679629edda965df1fcf235cacb2284966a10a843914314c95a56fa2ffaf7983e51013b768223cb636f4b3be0846cac6609d0b69bcdc2c9
+  checksum: 10c0/554d1d35aec4af5053b4c4a5e208c831347db2ead2e26a90a79f10378234f28f833ee9b006cdb6b0355a31d4e94c3c67bdacb1d1725fc224685f0acb3ff851d0
   languageName: node
   linkType: hard
 
@@ -4643,7 +4643,7 @@ __metadata:
     "@lexical/list": "npm:^0.17.0"
     "@lexical/rich-text": "npm:^0.17.0"
     "@payloadcms/live-preview-react": "npm:^0.2.0"
-    "@payloadcms/richtext-lexical": "npm:^0.11.2"
+    "@payloadcms/richtext-lexical": "npm:^0.11.3"
     "@radix-ui/react-toast": "npm:^1.2.1"
     "@tailwindcss/typography": "npm:^0.5.13"
     "@types/escape-html": "npm:^1.0.4"
