@@ -3,6 +3,11 @@
 A personal website project built with Next.js, React and Payload CMS. </br>
 CMS part of this project can be found [here](https://github.com/oleksii-st/personal-site-cms)
 
+## This repo is archived and will never be updated.
+
+The project was created with Payload 2.0 and currently deprecated.
+Payload 3.0 version which combine CMS and website parts can be found [here](https://github.com/oleksii-st/personal-site-monorepo). (Probably private repo).
+
 ## Description
 
 This project is a personal website built using Next.js, React, and various modern web technologies. It includes features like rich text editing, theming, and animations.
