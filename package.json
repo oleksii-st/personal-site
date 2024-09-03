@@ -15,7 +15,7 @@
     "**/*.{ts,tsx,js,json,md}": "yarn format"
   },
   "dependencies": {
-    "@lexical/list": "^0.17.0",
+    "@lexical/list": "^0.17.1",
     "@lexical/rich-text": "^0.17.0",
     "@payloadcms/live-preview-react": "^0.2.0",
     "@payloadcms/richtext-lexical": "^0.11.3",
