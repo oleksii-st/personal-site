@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Site
 
-## Getting Started
+A personal website project built with Next.js, React and Payload CMS. </br>
+CMS part of this project can be found [here](https://github.com/oleksii-st/personal-site-cms)
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is a personal website built using Next.js, React, and various modern web technologies. It includes features like rich text editing, theming, and animations.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Prerequisites
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js
+- Yarn (version 4.4.0 or later)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+1. Clone the repository:
+   `git clone <repository-url>`
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
+   `yarn install`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `yarn dev`: Start the development server
+- `yarn build`: Build the project for production
+- `yarn start`: Start the production server
+- `yarn lint`: Run ESLint
+- `yarn lint:fix`: Run ESLint and fix issues
+- `yarn format`: Format code using Prettier
 
-## Deploy on Vercel
+## Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To start the development server:
+`yarn dev`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This will start the Next.js development server.
+
+## Building for Production
+
+To build the project for production:
+`yarn build`
+
+## Serving Production Build
+
+To serve the production build:
+`yarn start`
+
+## Linting and Formatting
+
+- Run `yarn lint` to check for linting issues
+- Run `yarn lint:fix` to automatically fix linting issues
+- Run `yarn format` to format code using Prettier
+
+## Git Hooks
+
+This project uses Husky for Git hooks. The pre-commit hook runs lint-staged to ensure all staged files are formatted before committing.
+
+## Key Dependencies
+
+- Next.js
+- React
+- Tailwind CSS
+- Lexical (Rich Text Editing)
+- Radix UI
+- Formik
+- Swiper
+- TypeScript
+
+For a full list of dependencies, please refer to the `package.json` file.
+
+## Styling
+
+This project uses Tailwind CSS for styling, along with additional plugins:
+
+- @tailwindcss/typography
+- tailwindcss-animate
+
+## Theming
+
+The project includes theme support using the `next-themes` package.
+
+## Code Highlighting
+
+Code highlighting is implemented using the `react-code-blocks` package.
+
+## Email Functionality
+
+Email functionality is provided through the `resend` package.
+
+## Development Tools
+
+- ESLint for linting
+- Prettier for code formatting
+- TypeScript for type checking
