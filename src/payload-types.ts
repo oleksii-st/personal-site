@@ -350,7 +350,6 @@ export interface Header {
   id: string;
   logo: string;
   showThemeSelect?: boolean | null;
-  test?: boolean | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
